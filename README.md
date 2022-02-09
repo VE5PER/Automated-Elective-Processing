@@ -37,10 +37,13 @@ An application that allocates elective preference of students first come first s
 
 
 ### Built With
-
+<ol>
+  <li>
 <a href="https://www.djangoproject.com/">
     <img src="images/django-logo-positive.svg" alt="Logo" width="80" height="80">
   </a>
+  </li>
+  </ol>
 
 
 
