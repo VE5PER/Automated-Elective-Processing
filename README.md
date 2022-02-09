@@ -40,7 +40,7 @@ An application that allocates elective preference of students first come first s
 ### Built With
 
 
-* [Django](https://www.djangoproject.com/)
+* [<i class="fa fa-docker"></i>](https://www.djangoproject.com/)
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
