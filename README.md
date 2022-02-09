@@ -20,7 +20,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#TeamMembers">Team Members</a></li>
+    <li><a href="#Team-Members">Team Members</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributers">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -45,6 +45,14 @@ An application that allocates elective preference of students first come first s
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+### Team Members
+
+* E Santhosh Bharathi
+* Maithreyan S
+* Saurav S
+* Tejaswi V
+* Viswabharathi KA
 
 ### **GROUP-3** 
 
