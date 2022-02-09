@@ -39,13 +39,12 @@ An application that allocates elective preference of students first come first s
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [Django](https://www.djangoproject.com/)
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
+* [Docker](https://www.docker.com/)
 * [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
