@@ -66,6 +66,6 @@ An application that allocates elective preference of students first come first s
 <!-- PROGRESS -->
 ## Progress
 * [Invision](https://www.invisionapp.com/)
-    <img src="images/invision.svg" alt="Logo" width="80" height="80">
+    <img src="images/invision.png" alt="Logo" width="80" height="80">
 
 
