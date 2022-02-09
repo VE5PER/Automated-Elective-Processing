@@ -44,7 +44,7 @@ An application that allocates elective preference of students first come first s
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
-* [Docker](https://www.docker.com/)
+* <img src="fa-docker.svg" width="50" height="50">(https://www.docker.com/)
 * [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
