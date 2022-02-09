@@ -40,11 +40,11 @@ An application that allocates elective preference of students first come first s
 ### Built With
 
 
-* <i class="fa fa-docker"></i>(https://www.djangoproject.com/)
+* [Django](https://www.djangoproject.com/)
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
-* <img src="fa-docker.svg" width="50" height="50">(https://www.docker.com/)
+* [Docker](https://www.docker.com/)
 * [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
