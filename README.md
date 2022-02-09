@@ -60,12 +60,13 @@ An application that allocates elective preference of students first come first s
 * [Viswabharathi KA](https://github.com/Viswabharathi-K-A)
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- PROGRESS -->
 ## Progress
-* [Invision](https://www.invisionapp.com/)
-    <img src="images/invision.png" alt="Logo" width="80" height="80">
+* [Invision](https://www.invisionapp.com/)<br>
+    <img src="images/invision.png" alt="Logo" width="849" height="663">
+    
+    <p align="right">(<a href="#top">back to top</a>)</p>
 
 
