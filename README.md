@@ -48,11 +48,11 @@ An application that allocates elective preference of students first come first s
 
 ### Team Members
 
-* E Santhosh Bharathi
-* Maithreyan S
-* Saurav S
-* Tejaswi V
-* Viswabharathi KA
+* [E Santhosh Bharathi](https://github.com/sandyb-23) 
+* [Maithreyan S](https://github.com/Maithreyan11)
+* [Saurav S](https://github.com/VE5PER)
+* [Tejaswi V]()
+* [Viswabharathi KA](https://github.com/Viswabharathi-K-A)
 
 ### **GROUP-3** 
 
