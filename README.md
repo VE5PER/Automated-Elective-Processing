@@ -1,11 +1,7 @@
 ### Automated Elective processing
 <!-- Copy-paste in your Readme.md file -->
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo = GitHub_username/repository_name"/>
-</a>
 
-Made with [contributors-img](https://contrib.rocks).
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -38,6 +34,21 @@ Made with [contributors-img](https://contrib.rocks).
 
 An application that allocates elective preference of students first come first serve basis automatically. The electives are predefined in the database and the number of electives and the respective credits change dynamically based on the academic year. The main functionality is to allocate electives for students based on their preference. If many students have opted for the same elective, students will be allocated based on the first come first serve basis. The remaining students will be allocated to the elective of their second or next preference based on the availability of seats. If there are over 150% applicants aspiring for the same course, the class would be split into two sections. This allocation will be based on seat availability and faculty availability. 
 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Built With
+
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
+* [Django](https://www.djangoproject.com/)
+* [React.js](https://reactjs.org/)
+* [Vue.js](https://vuejs.org/)
+* [Angular](https://angular.io/)
+* [Svelte](https://svelte.dev/)
+* [Laravel](https://laravel.com)
+* [Bootstrap](https://getbootstrap.com)
+* [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
