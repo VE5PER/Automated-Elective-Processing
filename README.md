@@ -26,6 +26,15 @@
   </ol>
 </details>
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+An application that allocates elective preference of students first come first serve basis automatically. The electives are predefined in the database and the number of electives and the respective credits change dynamically based on the academic year. The main functionality is to allocate electives for students based on their preference. If many students have opted for the same elective, students will be allocated based on the first come first serve basis. The remaining students will be allocated to the elective of their second or next preference based on the availability of seats. If there are over 150% applicants aspiring for the same course, the class would be split into two sections. This allocation will be based on seat availability and faculty availability. 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 GROUP-3 
 
 Member Details 
