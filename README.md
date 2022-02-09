@@ -25,7 +25,7 @@
       </ul>
     </li>
     <li><a href="#Team-Members">Team Members</a></li>
-    <li><a href="#Support">Support</a></li>
+    <li><a href="#Progress">Progress</a></li>
     <li><a href="#contributers">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -39,8 +39,8 @@
 An application that allocates elective preference of students first come first serve basis automatically. The electives are predefined in the database and the number of electives and the respective credits change dynamically based on the academic year. The main functionality is to allocate electives for students based on their preference. If many students have opted for the same elective, students will be allocated based on the first come first serve basis. The remaining students will be allocated to the elective of their second or next preference based on the availability of seats. If there are over 150% applicants aspiring for the same course, the class would be split into two sections. This allocation will be based on seat availability and faculty availability. 
 
 
-
-### Built With
+<!-- BUILT WITH -->
+## Built With
 <ol>
   <li>
 <a href="https://www.djangoproject.com/">
@@ -50,8 +50,8 @@ An application that allocates elective preference of students first come first s
   </ol>
 
 
-
-### Team Members
+<!-- TEAM MEMBERS -->
+## Team Members
 
 * [E Santhosh Bharathi](https://github.com/sandyb-23) 
 * [Maithreyan S](https://github.com/Maithreyan11)
@@ -61,5 +61,11 @@ An application that allocates elective preference of students first come first s
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- PROGRESS -->
+## Progress
+* [Invision](https://www.invisionapp.com/)
+    <img src="images/invision.svg" alt="Logo" width="80" height="80">
 
 
