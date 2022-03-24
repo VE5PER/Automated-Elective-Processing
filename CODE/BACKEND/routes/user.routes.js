@@ -1,19 +1,25 @@
 
 const express = require('express')
-const User = require('../models/user.model')
+const User = require('../models/student.model')
 const router = express.Router()
 
 
 router.post('/signup',(req,res)=>{
-    User.findOne({email:req.body.email},(err,user)=>{
+    User.findOne({S_ID:req.body.S_ID},(err,user)=>{
         if(err){
             console.log(err)
             res.json(err)
         }else{
             if(user==null){
                 const user = User({
-                    email:req.body.email,
-                    password:req.body.password
+                    S_ID:req.body.S_ID,
+                    PASSWORD:req.body.PASSWORD,
+                    S_NAME: req.body.S_NAME,
+                    YEAR: req.body.YEAR,
+                    SEMESTER: req.body.SEMESTER,
+                    USER_NAME: req.body.USER_NAME, 
+                    E_MAIL: req.body.E_MAIL
+
                 })
                 user.save()
                 .then((err)=>{
@@ -29,7 +35,7 @@ router.post('/signup',(req,res)=>{
             }else{
 
             res.json({
-                message:'Email is not avilable'
+                message:'ID is not avilable'
             })   
             }
         }
@@ -38,7 +44,7 @@ router.post('/signup',(req,res)=>{
 })
 
 router.post('/signin',(req,res)=>{
-    User.findOne({email:req.body.email,password:req.body.password},(err,user)=>{
+    User.findOne({S_ID:req.body.S_ID,PASSWORD:req.body.PASSWORD},(err,user)=>{
         if(err){
             console.log(err)
             res.json(err)
@@ -48,7 +54,7 @@ router.post('/signin',(req,res)=>{
                 res.json(user)  } 
                 else{
                     res.json({
-                        message:'Email or Password Incorrect'
+                        message:'ID or Password Incorrect'
                     }) 
                 }
         }

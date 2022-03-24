@@ -17,18 +17,16 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },    
-    CLASS_NAME: {
-        type: String,
-        required: true
-    },
     USER_NAME: {
         type: String,
-        ref: 'User',
         required: true
     },
     E_MAIL: {
         type: String,
-        ref: 'User',
+        required: true
+    },
+    PASSWORD: {
+        type: String,
         required: true
     }
 }, {
