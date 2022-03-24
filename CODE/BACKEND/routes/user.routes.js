@@ -43,7 +43,14 @@ router.post('/signin',(req,res)=>{
             console.log(err)
             res.json(err)
         }else{
-            res.json(user)   
+            if(user!=null)
+            {
+                res.json(user)  } 
+                else{
+                    res.json({
+                        message:'Email or Password Incorrect'
+                    }) 
+                }
         }
     })
 })
