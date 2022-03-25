@@ -61,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Welcome!', style: Theme.of(context).textTheme.headline2),
+        child: Text('WELCOME!', style: Theme.of(context).textTheme.headline2),
       ),
     );
   }
@@ -90,14 +90,14 @@ class _loginformState extends State<loginform> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 15),
-      child: Form(
-        key: login,
+    return Form(
+      key: login,
+      child: Container(
+        padding: EdgeInsets.only(bottom: 15),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            LinearProgressIndicator(value: _formProgress),
+
             Text('Welcome', style: Theme.of(context).textTheme.headline4),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -174,6 +174,9 @@ class _loginformState extends State<loginform> {
               },
               child: const Text('Login'),
             ),
+            IconButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));
+            }, icon: Icon(Icons.dashboard))
           ],
         ),
       ),
