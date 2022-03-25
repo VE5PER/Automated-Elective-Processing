@@ -99,5 +99,16 @@ router.post('/addElective',(req,res)=>{
     
 })
 
+router.get('/getElectives', async (req,res) =>{
+    console.log("sfdsfd")
+    try{
+        electiveData = await Elective.find({},)
+        console.log(electiveData)
+        res.json({ElectiveList: electiveData})
+    } catch (error){
+        console.log(error)
+        res.json({status: error})
+    }
+})
 
 module.exports = router
