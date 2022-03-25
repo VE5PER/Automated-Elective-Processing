@@ -1,3 +1,4 @@
+import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const login());
@@ -87,7 +88,7 @@ class _loginformState extends State<loginform> {
   }
 
   void _showWelcomeScreen() {
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));// redirect to dashboard student or faculty //
+    Navigator.push(context, MaterialPageRoute(builder: (context) => tempDash()));// redirect to dashboard student or faculty //
   }
 
   @override

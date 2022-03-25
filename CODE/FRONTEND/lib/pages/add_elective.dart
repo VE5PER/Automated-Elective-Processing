@@ -62,7 +62,7 @@ class _addElectiveState extends State<addElective> {
                           setState(() async {
                             Elective course =  Elective(ELECTIVE_ID.text,ELECTIVE_NAME.text,ELECTIVE_PDF_LINK.text);
                             String json = jsonEncode(course);
-                            String resp =await addStudent(json);
+                            String resp =await addElectiveFn(json);
                             showScreenDialog(context, resp==''?resp:"HTTP Error");
 
 
@@ -86,9 +86,9 @@ class _addElectiveState extends State<addElective> {
 }
 
 
-Future<String> addElective(String stu) async {
+Future<String> addElectiveFn(String stu) async {
   final response = await http.post(
-    Uri.parse('http://localhost:8080/signup'),
+    Uri.parse('http://localhost:8080/addElective'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
@@ -101,7 +101,7 @@ Future<String> addElective(String stu) async {
   } else {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
-    throw Exception('Failed to add student.');
+    throw Exception('Failed to add Elective.');
 
   }
 }
