@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
+import 'package:automated_elective_processing/pages/logout.dart';
 
 class SideBar extends StatefulWidget {
   @override
@@ -30,27 +31,37 @@ class _SideBarState extends State<SideBar> {
             DrawerListTile(
               title: "Change Password",
               icon: "assets/reset_password.png",
-              press: () {},
+              press: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+              },
             ),
             DrawerListTile(
               title: "Elective Agreement policy",
               icon: "assets/menu_onboarding.png",
-              press: () {},
+              press: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+              },
             ),
             DrawerListTile(
               title: "Elective Preference Selection",
               icon: "assets/menu_report.png",
-              press: () {},
+              press: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+              },
             ),
             DrawerListTile(
               title: "Change Elective",
               icon: "assets/menu_onboarding.png",
-              press: () {},
+              press: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+              },
             ),
             DrawerListTile(
               title: "Logout",
               icon: "assets/logout.png",
-              press: () {},
+              press: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+              },
             ),
             Spacer(),
             Image.asset("assets/sidebar_image.png")
