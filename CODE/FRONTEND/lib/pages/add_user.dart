@@ -95,7 +95,7 @@ class _addUserState extends State<addUser> {
                            Student user =  Student(S_ID.text,PASSWORD.text,S_NAME.text,YEAR.text,SEMESTER.text,USER_NAME.text,E_MAIL.text);
                            String json = jsonEncode(user);
                            String resp =await addStudent(json);
-                           print(resp);
+
                            if(resp.contains("ID is not available")){
                              showScreenDialog(context, 'ID is not available!!');
                            }

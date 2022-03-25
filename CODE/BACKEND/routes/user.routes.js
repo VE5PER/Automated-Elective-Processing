@@ -2,7 +2,7 @@
 const express = require('express')
 const User = require('../models/student.model')
 const router = express.Router()
-
+const Elective = require('../models/elective.model')
 
 router.post('/signup',(req,res)=>{
     User.findOne({S_ID:req.body.S_ID},(err,user)=>{
@@ -60,4 +60,43 @@ router.post('/signin',(req,res)=>{
         }
     })
 })
+
+
+
+
+router.post('/addElective',(req,res)=>{
+    Elective.findOne({ELECTIVE_ID:req.body.ELECTIVE_ID},(err,course)=>{
+        if(err){
+            console.log(err)
+            res.json(err)
+        }else{
+            if(course==null){
+                const course = Elective({
+                    ELECTIVE_ID:req.body.ELECTIVE_ID,
+                    ELECTIVE_PDF_LINK:req.body.ELECTIVE_PDF_LINK,
+                    ELECTIVE_NAME: req.body.ELECTIVE_NAME
+                })
+                course.save()
+                .then((err)=>{
+                    if(err){
+                        console.log(err)
+                        res.json(err)
+                    }else{
+                        console.log(course)
+                        res.json(course)
+                    }
+                    
+                })
+            }else{
+
+            res.json({
+                message:'ID is not available'
+            })   
+            }
+        }
+    })
+    
+})
+
+
 module.exports = router

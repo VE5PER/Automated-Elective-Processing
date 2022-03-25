@@ -63,7 +63,7 @@ class _addElectiveState extends State<addElective> {
                             Elective course =  Elective(ELECTIVE_ID.text,ELECTIVE_NAME.text,ELECTIVE_PDF_LINK.text);
                             String json = jsonEncode(course);
                             String resp =await addElectiveFn(json);
-                            showScreenDialog(context, resp==''?resp:"HTTP Error");
+                            
 
 
 

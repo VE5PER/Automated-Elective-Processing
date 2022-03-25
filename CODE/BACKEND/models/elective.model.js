@@ -7,7 +7,7 @@ const electiveSchema = new mongoose.Schema({
     },
     ELECTIVE_PDF_LINK: {
         type: String,
-        required: true
+
     },
     ELECTIVE_NAME: {
         type: String,
