@@ -1,22 +1,17 @@
 const mongoose = require('mongoose')
 
 const table3Schema = new mongoose.Schema({
-    FACULTY_ID: {
-        ref: 'Faculty',
+    S_ID: {
         type: String,
+        ref: 'Student',
         required: true,
     },
-    SEMESTER: {
-        type: String,
-        required: true
-    },
-    COURSE_ID: {
-        ref:'Course',
-        type: String,
-        required: true
-    },
     ELECTIVE_ID: {
-        ref:'Elective',
+        ref: 'Elective',
+        type: String,
+        required: true
+    },
+    ENROLLMENT: {
         type: String,
         required: true
     },    
