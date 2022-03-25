@@ -1,6 +1,4 @@
-import 'package:dashboard/common/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:dashboard/dashboard.dart';
 
 void main() => runApp(const login());
 
@@ -25,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.bgSideMenu,
+      backgroundColor: Colors.amber,
       body:  Column(
           children: [
           Center(
@@ -89,7 +87,7 @@ class _loginformState extends State<loginform> {
   }
 
   void _showWelcomeScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));// redirect to dashboard student or faculty //
+    //Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));// redirect to dashboard student or faculty //
   }
 
   @override
