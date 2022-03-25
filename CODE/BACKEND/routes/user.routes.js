@@ -74,7 +74,8 @@ router.post('/addElective',(req,res)=>{
                 const course = Elective({
                     ELECTIVE_ID:req.body.ELECTIVE_ID,
                     ELECTIVE_PDF_LINK:req.body.ELECTIVE_PDF_LINK,
-                    ELECTIVE_NAME: req.body.ELECTIVE_NAME
+                    ELECTIVE_NAME: req.body.ELECTIVE_NAME,
+                    SEATS:req.body.SEATS
                 })
                 course.save()
                 .then((err)=>{

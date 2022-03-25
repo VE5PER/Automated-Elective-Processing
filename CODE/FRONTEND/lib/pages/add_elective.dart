@@ -19,6 +19,7 @@ class _addElectiveState extends State<addElective> {
     final TextEditingController ELECTIVE_ID = TextEditingController();
     final TextEditingController ELECTIVE_NAME = TextEditingController();
     final TextEditingController ELECTIVE_PDF_LINK = TextEditingController();
+    final TextEditingController SEATS = TextEditingController();
     final addElective = GlobalKey<FormState>();
     return Scaffold(
       body: Row(
@@ -56,11 +57,18 @@ class _addElectiveState extends State<addElective> {
                     ),
                     controller: ELECTIVE_PDF_LINK,
                   ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      label: Text("Enter the Number of seats"),
+                    ),
+                    controller: SEATS,
+                  ),
                   ElevatedButton(
                       onPressed: () async {
                         if (addElective.currentState!.validate()) {
 
-                            Elective course =  Elective(ELECTIVE_ID.text,ELECTIVE_NAME.text,ELECTIVE_PDF_LINK.text);
+                            Elective course =  Elective(ELECTIVE_ID.text,ELECTIVE_NAME.text,ELECTIVE_PDF_LINK.text,SEATS.text);
                             String json = jsonEncode(course);
                             String resp =await addElectiveFn(json);
 

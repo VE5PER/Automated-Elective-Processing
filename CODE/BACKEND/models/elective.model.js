@@ -12,7 +12,11 @@ const electiveSchema = new mongoose.Schema({
     ELECTIVE_NAME: {
         type: String,
         required: true,
-    },    
+    },
+    SEATS: {
+        type: String,
+        required: true,
+    },     
 }, {
     timestamps: true
 })
