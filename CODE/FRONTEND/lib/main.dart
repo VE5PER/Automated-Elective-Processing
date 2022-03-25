@@ -1,6 +1,9 @@
+import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 void main() => runApp(const login());
 
@@ -134,12 +137,29 @@ class _loginformState extends State<loginform> {
                       : Colors.blueAccent;
                 }),
               ),
-              onPressed:() {
+              onPressed:() async {
                 if(_username.text=='admin' && _password.text=='admin'){
                   _addStudent();
                 }
                 else if(login.currentState!.validate()){
-                  _showWelcomeScreen();
+                  String loginJson='''{
+                      "S_ID":"${_username.text}",
+                      "PASSWORD":"${_password.text}"
+                      }
+                  ''';
+                  String status = await validateUser(loginJson);
+                  print(status);
+
+                  if(status.contains('ID or Password Incorrect')){
+                    showScreenDialog(context, 'ID or Password Incorrect');
+                  }
+
+                  else {
+                    //instantiate user here
+                    _showWelcomeScreen();
+                  }
+
+
                 }
               },
               child: const Text('Login'),
@@ -148,5 +168,26 @@ class _loginformState extends State<loginform> {
         ),
       ),
     );
+  }
+}
+
+
+Future<String> validateUser(String stu) async {
+  final response = await http.post(
+    Uri.parse('http://localhost:8080/signin'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+    },
+    body: stu,
+  );
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return response.body.toString();
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Login error');
+
   }
 }
