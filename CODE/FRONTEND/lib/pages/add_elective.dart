@@ -63,7 +63,15 @@ class _addElectiveState extends State<addElective> {
                             Elective course =  Elective(ELECTIVE_ID.text,ELECTIVE_NAME.text,ELECTIVE_PDF_LINK.text);
                             String json = jsonEncode(course);
                             String resp =await addElectiveFn(json);
-                            
+
+                            if(resp.contains("ID is not available")){
+                              showScreenDialog(context, 'ID is not available!!');
+                            }
+                            else{
+
+                              showScreenDialog(context, "Added Successfully");
+                            }
+
 
 
 
@@ -94,7 +102,7 @@ Future<String> addElectiveFn(String stu) async {
     },
     body: stu,
   );
-  if (response.statusCode == 201) {
+  if (response.statusCode == 200 || response.statusCode == 201) {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
     return response.body.toString();

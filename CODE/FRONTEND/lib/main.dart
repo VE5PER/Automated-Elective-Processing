@@ -67,13 +67,13 @@ class loginform extends StatefulWidget {
 
 class _loginformState extends State<loginform> {
   final _username = TextEditingController();
-  final _passwaord = TextEditingController();
+  final _password = TextEditingController();
   double _formProgress = 0;
   void _updateFormProgress() {
     var progress = 0.0;
     final controllers = [
       _username,
-      _passwaord,
+      _password,
     ];
 
     for (final controller in controllers) {
@@ -110,7 +110,7 @@ class _loginformState extends State<loginform> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-              controller: _passwaord,
+              controller: _password,
               obscureText: true,
               decoration: const InputDecoration(hintText: 'password'),
             ),
