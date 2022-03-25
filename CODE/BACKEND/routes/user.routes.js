@@ -35,7 +35,7 @@ router.post('/signup',(req,res)=>{
             }else{
 
             res.json({
-                message:'ID is not avilable'
+                message:'ID is not available'
             })   
             }
         }

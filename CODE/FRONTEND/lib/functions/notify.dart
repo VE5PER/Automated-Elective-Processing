@@ -14,7 +14,7 @@ void showScreenDialog(BuildContext context, String msg) {
     pageBuilder: (_, __, ___) {
       return Center(
         child: Container(
-          height: 240,
+          height: 50,
           child: SizedBox.expand(child: Row(
             children: [
               Text(msg),

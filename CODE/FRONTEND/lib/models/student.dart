@@ -17,3 +17,5 @@ Map toJson() => {
   "E_MAIL":E_MAIL,
 };
 }
+
+Student? currentUser;

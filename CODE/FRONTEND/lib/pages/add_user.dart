@@ -89,16 +89,23 @@ class _addUserState extends State<addUser> {
                     controller: E_MAIL,
                   ),
                   ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (addUser.currentState!.validate()) {
-                          setState(() async {
+
                            Student user =  Student(S_ID.text,PASSWORD.text,S_NAME.text,YEAR.text,SEMESTER.text,USER_NAME.text,E_MAIL.text);
                            String json = jsonEncode(user);
                            String resp =await addStudent(json);
-                           showScreenDialog(context, resp==''?resp:"HTTP Error");
+                           print(resp);
+                           if(resp.contains("ID is not available")){
+                             showScreenDialog(context, 'ID is not available!!');
+                           }
+                           else{
+
+                             showScreenDialog(context, "Added Successfully");
+                           }
+                           //showScreenDialog(context, resp);
 
 
-                          });
                         }
                       },
                       child: Text("SUBMIT")),
@@ -126,7 +133,7 @@ Future<String> addStudent(String stu) async {
     },
     body: stu,
   );
-  if (response.statusCode == 201) {
+  if (response.statusCode == 200 || response.statusCode == 201) {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
     return response.body.toString();
