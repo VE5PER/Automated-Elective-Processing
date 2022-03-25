@@ -88,6 +88,10 @@ class _loginformState extends State<loginform> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => addUser()));// redirect to dashboard student or faculty //
   }
 
+  void _adminDash() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => tempDash()));// redirect to dashboard student or faculty //
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -143,7 +147,7 @@ class _loginformState extends State<loginform> {
               ),
               onPressed:() async {
                 if(_username.text=='admin' && _password.text=='admin'){
-                  _addStudent();
+                  _adminDash();
                 }
                 else if(login.currentState!.validate()){
                   String loginJson='''{
