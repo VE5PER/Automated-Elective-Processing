@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:automated_elective_processing/dashboard.dart';
 import 'package:automated_elective_processing/functions/notify.dart';
+import 'package:automated_elective_processing/models/student.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +81,7 @@ class _loginformState extends State<loginform> {
   final login = GlobalKey<FormState>();
 
   void _showWelcomeScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => tempDash()));// redirect to dashboard student or faculty //
+    Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));// redirect to dashboard student or faculty //
   }
 
   void _addStudent() {
@@ -156,6 +160,12 @@ class _loginformState extends State<loginform> {
 
                   else {
                     //instantiate user here
+                    final parsedStudent = jsonDecode(status);
+
+                   currentUser= parsedStudent;
+                       //Student(parsedStudent['S_ID'], parsedStudent['PASSWORD'], parsedStudent['S_NAME'], parsedStudent['YEAR'], parsedStudent['SEMESTER'], parsedStudent['USER_NAME'], parsedStudent['E_MAIL']);
+                    print(currentUser);
+
                     _showWelcomeScreen();
                   }
 

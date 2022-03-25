@@ -1,3 +1,4 @@
+import 'package:automated_elective_processing/models/student.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 
@@ -18,9 +19,9 @@ class NotificationCardWidget extends StatelessWidget {
                 TextSpan(
                   style: TextStyle(fontSize: 16, color: AppColor.black),
                   children: [
-                    TextSpan(text: "Good Morning "),
+                    TextSpan(text: "Welcome "),
                     TextSpan(
-                      text: "Ravi Patel!",
+                      text: currentUser["S_NAME"],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),

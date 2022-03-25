@@ -16,6 +16,8 @@ Map toJson() => {
   "USER_NAME":USER_NAME,
   "E_MAIL":E_MAIL,
 };
+
+
 }
 
-Student? currentUser;
+var currentUser;

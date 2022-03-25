@@ -1,3 +1,4 @@
+import 'package:automated_elective_processing/models/student.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 
@@ -26,10 +27,10 @@ class ProfileCardWidget extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "Ravi Patel",
+                    currentUser['S_NAME'].toString(),
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text("20067"),
+                  Text(currentUser['S_ID'].toString()),
                 ],
               )
             ],
