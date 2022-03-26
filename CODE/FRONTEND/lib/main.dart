@@ -105,7 +105,7 @@ class _loginformState extends State<loginform> {
           mainAxisSize: MainAxisSize.min,
           children: [
 
-            Text('Welcome', style: Theme.of(context).textTheme.headline4),
+            Text('Login', style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 30)),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
