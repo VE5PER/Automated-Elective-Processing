@@ -4,9 +4,12 @@ import 'package:automated_elective_processing/dashboard.dart';
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/student.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
+import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+List ele=[];
 
 
 void main() => runApp(const login());
@@ -31,7 +34,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+getElectives();
     return Scaffold(
       backgroundColor: Colors.amber,
       body:  Column(

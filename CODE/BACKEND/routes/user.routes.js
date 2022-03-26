@@ -102,7 +102,6 @@ router.post('/addElective',(req,res)=>{
 })
 
 router.get('/getElectives', async (req,res) =>{
-    console.log("sfdsfd")
     try{
         electiveData = await Elective.find({},)
         console.log(electiveData)
