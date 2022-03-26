@@ -41,6 +41,12 @@ class _addElectiveState extends State<addElective> {
                       icon: Icon(Icons.person),
                       label: Text("Enter Elective ID"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Elective ID';
+                      }
+                      return null;
+                    },
                     controller: ELECTIVE_ID,
                   ),
                   TextFormField(
@@ -48,13 +54,25 @@ class _addElectiveState extends State<addElective> {
                       icon: Icon(Icons.person),
                       label: Text("Enter Elective Name"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Name';
+                      }
+                      return null;
+                    },
                     controller: ELECTIVE_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
-                      label: Text("Give Elective PDF Link"),
+                      label: Text("Give Elective reference Link"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter ref Link';
+                      }
+                      return null;
+                    },
                     controller: ELECTIVE_PDF_LINK,
                   ),
                   TextFormField(
@@ -62,6 +80,12 @@ class _addElectiveState extends State<addElective> {
                       icon: Icon(Icons.person),
                       label: Text("Enter the Number of seats"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Number of seats';
+                      }
+                      return null;
+                    },
                     controller: SEATS,
                   ),
                   ElevatedButton(
