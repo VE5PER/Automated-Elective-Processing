@@ -49,12 +49,24 @@ class _addUserState extends State<addUser> {
                       label: Text("Enter Student ID", style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: S_ID,
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter STUDENT ID';
+                      }
+                      return null;
+                    },
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(Icons.person, color: AppColor.yellow,),
                       label: Text("Enter Student PASSWORD",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Password';
+                      }
+                      return null;
+                    },
                     controller: PASSWORD,
                   ),
                   TextFormField(
@@ -62,6 +74,12 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person, color: AppColor.yellow,),
                       label: Text("Enter Student NAME", style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter NAME';
+                      }
+                      return null;
+                    },
                     controller: S_NAME,
                   ),
                   TextFormField(
@@ -69,6 +87,12 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person, color: AppColor.yellow,),
                       label: Text("Enter Student YEAR",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter YEAR';
+                      }
+                      return null;
+                    },
                     controller: YEAR,
                   ),
                   TextFormField(
@@ -76,6 +100,12 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person, color: AppColor.yellow,),
                       label: Text("Enter Student SEMESTER",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter SEMESTER';
+                      }
+                      return null;
+                    },
                     controller: SEMESTER,
                   ),
                   TextFormField(
@@ -83,13 +113,24 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person, color: AppColor.yellow,),
                       label: Text("Enter Student USER_NAME",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter USER_NAME';
+                      }
+                      return null;
+                    },
                     controller: USER_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(Icons.person, color: AppColor.yellow,),
-                      label: Text("Enter Student E_MAIL",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
-                    ),
+                      label: Text("Enter Student E_MAIL",style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
+                    ),validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter E_MAIL';
+                    }
+                    return null;
+                  },
                     controller: E_MAIL,
                   ),
                   SizedBox(
@@ -101,6 +142,7 @@ class _addUserState extends State<addUser> {
 
                            Student user =  Student(S_ID.text,PASSWORD.text,S_NAME.text,YEAR.text,SEMESTER.text,USER_NAME.text,E_MAIL.text);
                            String json = jsonEncode(user);
+                           print(json);
                            String resp =await addStudent(json);
 
                            if(resp.contains("ID is not available")){

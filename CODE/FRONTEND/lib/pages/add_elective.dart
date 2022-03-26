@@ -44,6 +44,12 @@ class _addElectiveState extends State<addElective> {
                       icon: Icon(Icons.person, color: AppColor.purple,),
                       label: Text("Enter Elective ID", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Elective ID';
+                      }
+                      return null;
+                    },
                     controller: ELECTIVE_ID,
                   ),
                   TextFormField(
@@ -51,13 +57,25 @@ class _addElectiveState extends State<addElective> {
                       icon: Icon(Icons.person, color: AppColor.purple,),
                       label: Text("Enter Elective Name", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Name';
+                      }
+                      return null;
+                    },
                     controller: ELECTIVE_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(Icons.person, color: AppColor.purple,),
-                      label: Text("Give Elective PDF Link", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
+                      label: Text("Give Elective reference Link",style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15), ),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter ref Link';
+                      }
+                      return null;
+                    },
                     controller: ELECTIVE_PDF_LINK,
                   ),
                   TextFormField(
@@ -65,6 +83,12 @@ class _addElectiveState extends State<addElective> {
                       icon: Icon(Icons.person, color: AppColor.purple,),
                       label: Text("Enter the Number of seats", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Number of seats';
+                      }
+                      return null;
+                    },
                     controller: SEATS,
                   ),
                   SizedBox(
