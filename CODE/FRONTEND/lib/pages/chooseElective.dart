@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/elective.dart';
 import 'package:automated_elective_processing/models/student.dart';
+import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -22,6 +23,7 @@ class _chooseElectiveState extends State<chooseElective> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
@@ -46,6 +48,7 @@ class _chooseElectiveState extends State<chooseElective> {
             showScreenDialog(context, "Successfully registered");
           }
           eleIds.clear();
+          await takeElectives();
 
         },
         label: Text('Confirm Selection'),
