@@ -1,8 +1,10 @@
 
 const express = require('express')
 const User = require('../models/student.model')
+const mongoose = require('mongoose')
 const router = express.Router()
 const Elective = require('../models/elective.model')
+const StuEle = require('../models/table3.model')
 
 router.post('/signup',(req,res)=>{
     User.findOne({S_ID:req.body.S_ID},(err,user)=>{
@@ -108,6 +110,38 @@ router.get('/getElectives', async (req,res) =>{
         console.log(error)
         res.json({status: error})
     }
+})
+router.post('/StudentElective',(req,res)=>{
+    StuEle.findOne({S_ID:req.body.S_ID},(err,elec)=>{
+        if(err){
+            console.log(err)
+            res.json(err)
+        }else{
+            if(elec==null){
+                const elec = StuEle({
+                    S_ID:req.body.S_ID,
+                    ELECTIVE_ID:req.body.ELECTIVE_ID,
+                })
+                elec.save()
+                .then((err)=>{
+                    if(err){
+                        console.log(err)
+                        res.json(err)
+                    }else{
+                        console.log(taken)
+                        res.json(taken)
+                    }
+                    
+                })
+            }else{
+
+            res.json({
+                message:'ID is not available'
+            })   
+            }
+        }
+    })
+    
 })
 
 module.exports = router
