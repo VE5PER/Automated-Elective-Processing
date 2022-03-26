@@ -1,5 +1,6 @@
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/elective.dart';
+import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -22,6 +23,8 @@ class _addElectiveState extends State<addElective> {
     final TextEditingController SEATS = TextEditingController();
     final addElective = GlobalKey<FormState>();
     return Scaffold(
+      appBar: AppBar(title: Text("Add User", textAlign: TextAlign.center, style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.black,),
+      backgroundColor: AppColor.green,
       body: Row(
         children: [
           Expanded(
@@ -38,31 +41,34 @@ class _addElectiveState extends State<addElective> {
                 children: [
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Elective ID"),
+                      icon: Icon(Icons.person, color: AppColor.purple,),
+                      label: Text("Enter Elective ID", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: ELECTIVE_ID,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Elective Name"),
+                      icon: Icon(Icons.person, color: AppColor.purple,),
+                      label: Text("Enter Elective Name", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: ELECTIVE_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Give Elective PDF Link"),
+                      icon: Icon(Icons.person, color: AppColor.purple,),
+                      label: Text("Give Elective PDF Link", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: ELECTIVE_PDF_LINK,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter the Number of seats"),
+                      icon: Icon(Icons.person, color: AppColor.purple,),
+                      label: Text("Enter the Number of seats", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: SEATS,
+                  ),
+                  SizedBox(
+                    height: 50
                   ),
                   ElevatedButton(
                       onPressed: () async {

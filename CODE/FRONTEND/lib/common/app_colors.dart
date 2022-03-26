@@ -7,4 +7,5 @@ class AppColor {
   static Color white = Colors.white;
   static Color black = Colors.black;
   static Color purple = Colors.deepPurple;
+  static Color green = Color.fromARGB(255, 66, 180, 146);
 }

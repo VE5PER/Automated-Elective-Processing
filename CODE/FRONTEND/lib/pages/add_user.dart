@@ -1,6 +1,8 @@
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/student.dart';
+import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -25,6 +27,8 @@ class _addUserState extends State<addUser> {
     final TextEditingController E_MAIL = TextEditingController();
     final addUser = GlobalKey<FormState>();
     return Scaffold(
+      appBar: AppBar(title: Text("Add User", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.black,),
+      backgroundColor: AppColor.purple,
       body: Row(
         children: [
           Expanded(
@@ -41,52 +45,55 @@ class _addUserState extends State<addUser> {
                 children: [
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student ID"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student ID", style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: S_ID,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student PASSWORD"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student PASSWORD",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: PASSWORD,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student NAME"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student NAME", style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: S_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student YEAR"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student YEAR",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: YEAR,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student SEMESTER"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student SEMESTER",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: SEMESTER,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student USER_NAME"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student USER_NAME",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: USER_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      label: Text("Enter Student E_MAIL"),
+                      icon: Icon(Icons.person, color: AppColor.yellow,),
+                      label: Text("Enter Student E_MAIL",  style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 15),),
                     ),
                     controller: E_MAIL,
+                  ),
+                  SizedBox(
+                    height: 50
                   ),
                   ElevatedButton(
                       onPressed: () async {
