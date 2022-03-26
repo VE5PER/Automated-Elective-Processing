@@ -172,6 +172,8 @@ class _loginformState extends State<loginform> {
                    currentUser= parsedStudent;
                        //Student(parsedStudent['S_ID'], parsedStudent['PASSWORD'], parsedStudent['S_NAME'], parsedStudent['YEAR'], parsedStudent['SEMESTER'], parsedStudent['USER_NAME'], parsedStudent['E_MAIL']);
                     print(currentUser);
+                    _username.clear();
+                    _password.clear();
 
                     _showWelcomeScreen();
                   }

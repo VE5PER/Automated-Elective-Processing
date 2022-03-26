@@ -26,6 +26,7 @@ class _chooseElectiveState extends State<chooseElective> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           print(eleIds);
+          int success=1;
           for(var i in eleIds){
             String electiveJson='''{
                       "S_ID":"${currentUser["S_ID"]}",
@@ -33,10 +34,16 @@ class _chooseElectiveState extends State<chooseElective> {
                       }
                   ''';
             String status = await setElective(electiveJson);
+            print(status);
             if(status.contains('Already Registered')) {
               showScreenDialog(context, "Already Registered");
+              success=0;
               break;
             }
+
+          }
+          if(success==1){
+            showScreenDialog(context, "Successfully registered");
           }
           eleIds.clear();
 
