@@ -1,6 +1,9 @@
+import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:automated_elective_processing/pages/logout.dart';
+
+import '../WIP.dart';
 
 class SideBar extends StatefulWidget {
   @override
@@ -32,28 +35,28 @@ class _SideBarState extends State<SideBar> {
               title: "Change Password",
               icon: "assets/reset_password.png",
               press: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
               title: "Elective Agreement policy",
               icon: "assets/menu_onboarding.png",
               press: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
               title: "Elective Preference Selection",
               icon: "assets/menu_report.png",
               press: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => chooseElective()));
               },
             ),
             DrawerListTile(
               title: "Change Elective",
               icon: "assets/menu_onboarding.png",
               press: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
