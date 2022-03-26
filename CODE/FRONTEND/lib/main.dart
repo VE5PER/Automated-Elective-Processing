@@ -5,6 +5,7 @@ import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/student.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
 import 'package:automated_elective_processing/pages/chooseElective.dart';
+import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -174,7 +175,9 @@ class _loginformState extends State<loginform> {
                     print(currentUser);
                     _username.clear();
                     _password.clear();
+                    await takeElectives();
 
+                    print(eleChosen);
                     _showWelcomeScreen();
                   }
 
