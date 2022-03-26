@@ -6,4 +6,5 @@ class AppColor {
   static Color bgSideMenu = Color(0xff131e29);
   static Color white = Colors.white;
   static Color black = Colors.black;
+  static Color purple = Colors.deepPurple;
 }
