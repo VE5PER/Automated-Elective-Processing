@@ -45,12 +45,24 @@ class _addUserState extends State<addUser> {
                       label: Text("Enter Student ID"),
                     ),
                     controller: S_ID,
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter STUDENT ID';
+                      }
+                      return null;
+                    },
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
                       label: Text("Enter Student PASSWORD"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Password';
+                      }
+                      return null;
+                    },
                     controller: PASSWORD,
                   ),
                   TextFormField(
@@ -58,6 +70,12 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person),
                       label: Text("Enter Student NAME"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter NAME';
+                      }
+                      return null;
+                    },
                     controller: S_NAME,
                   ),
                   TextFormField(
@@ -65,6 +83,12 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person),
                       label: Text("Enter Student YEAR"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter YEAR';
+                      }
+                      return null;
+                    },
                     controller: YEAR,
                   ),
                   TextFormField(
@@ -72,6 +96,12 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person),
                       label: Text("Enter Student SEMESTER"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter SEMESTER';
+                      }
+                      return null;
+                    },
                     controller: SEMESTER,
                   ),
                   TextFormField(
@@ -79,13 +109,24 @@ class _addUserState extends State<addUser> {
                       icon: Icon(Icons.person),
                       label: Text("Enter Student USER_NAME"),
                     ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter USER_NAME';
+                      }
+                      return null;
+                    },
                     controller: USER_NAME,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
                       label: Text("Enter Student E_MAIL"),
-                    ),
+                    ),validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter E_MAIL';
+                    }
+                    return null;
+                  },
                     controller: E_MAIL,
                   ),
                   ElevatedButton(
