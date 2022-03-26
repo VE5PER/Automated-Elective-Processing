@@ -7,6 +7,8 @@ import 'package:http/http.dart' as http;
 
 import '../main.dart';
 
+List eleIds=[];
+
 class chooseElective extends StatefulWidget {
   const chooseElective({Key? key}) : super(key: key);
 
@@ -19,18 +21,16 @@ class _chooseElectiveState extends State<chooseElective> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: (){
+          print(eleIds);
+        },
+        label: Text('Confirm Selection'),
+
+      ),
 
       appBar: AppBar(title: Text("Choose Electives"),
-      actions: [
-        ElevatedButton(
-          child: Icon(Icons.access_alarm),
-          onPressed: () async {
-             setState(() async {
-               ele = await getElectives();
-             });
-          },
-        )
-      ],),
+     ),
 
       body: ele.length>0?Container(
         padding: EdgeInsets.all(20),
@@ -42,21 +42,34 @@ class _chooseElectiveState extends State<chooseElective> {
                 mainAxisSpacing: 20),
             itemCount: ele.length,
             itemBuilder: (BuildContext ctx, index) {
-              return Container(
-                padding: EdgeInsets.all(5),
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text('Elective ID: ${ele[index][0]}'),
-                    Text('Ref Link: ${ele[index][1]}'),
-                    Text('Elective Name: ${ele[index][2]}'),
-                    Text('No of Seats: ${ele[index][3]}'),
-                  ],
+              return InkWell(
+                onTap: (){
+                  setState(() {
+                    if(eleIds.contains(ele[index][0])){
+                      eleIds.remove(ele[index][0]);
+                    }
+                    else{
+                      eleIds.add(ele[index][0]);
+                      }
+                    
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text('Elective ID: ${ele[index][0]}'),
+                      Text('Ref Link: ${ele[index][1]}'),
+                      Text('Elective Name: ${ele[index][2]}'),
+                      Text('No of Seats: ${ele[index][3]}'),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      color: eleIds.contains(ele[index][0])? Colors.red : Colors.amber,
+                      borderRadius: BorderRadius.circular(15)),
                 ),
-                decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(15)),
               );
             }),
       ):Container(),
