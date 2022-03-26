@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/elective.dart';
+import 'package:automated_elective_processing/models/student.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -22,8 +24,22 @@ class _chooseElectiveState extends State<chooseElective> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){
+        onPressed: () async {
           print(eleIds);
+          for(var i in eleIds){
+            String electiveJson='''{
+                      "S_ID":"${currentUser["S_ID"]}",
+                      "ELECTIVE_ID":"${i.toString()}"
+                      }
+                  ''';
+            String status = await setElective(electiveJson);
+            if(status.contains('Already Registered')) {
+              showScreenDialog(context, "Already Registered");
+              break;
+            }
+          }
+          eleIds.clear();
+
         },
         label: Text('Confirm Selection'),
 
@@ -103,5 +119,26 @@ Future<List> getElectives() async {
     // If the server did not return a 200 OK response,
     // then throw an exception.
     throw Exception('Failed to load elective list');
+  }
+}
+
+
+Future<String> setElective(String stu) async {
+  final response = await http.post(
+    Uri.parse('http://localhost:8080/StudentElective'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+    },
+    body: stu,
+  );
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return response.body.toString();
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Elective Add error');
+
   }
 }
