@@ -177,7 +177,8 @@ class _loginformState extends State<loginform> {
                     _password.clear();
                     await takeElectives();
 
-                    print(eleChosen);
+
+
                     _showWelcomeScreen();
                   }
 

@@ -143,7 +143,7 @@ router.post('/StudentElective',(req,res)=>{
     })
     
 })
-router.get('/takeElectives', async (req,res) =>{
+router.post('/takeElectives', async (req,res) =>{
     try{
         takeelectiveData = await StuEle.find({S_ID:req.body.S_ID},)
         console.log(takeelectiveData)

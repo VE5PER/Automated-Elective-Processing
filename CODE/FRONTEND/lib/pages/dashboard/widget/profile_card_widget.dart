@@ -48,9 +48,6 @@ takeElectives();
 
            for(var i in eleChosen)     profileListTile(i.toString(), "REG"),
 
-         ElevatedButton(onPressed: () async {
-           await takeElectives();
-         }, child: Text("Temp Button"))
 
 
          // profileListTile("Elective 2", "B"),
@@ -80,8 +77,16 @@ takeElectives();
 }
 
 Future<List> takeElectives() async {
-  final response = await http.get(Uri.parse('http://localhost:8080/takeElectives'));
 
+  final response = await http.post(
+    Uri.parse('http://localhost:8080/takeElectives'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+    },
+    body: '''{
+     "S_ID":"${currentUser['S_ID']}"
+    }''',
+  );
   if (response.statusCode == 200 || response.statusCode == 201) {
 
     var x =  jsonDecode(response.body);
