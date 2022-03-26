@@ -112,7 +112,7 @@ router.get('/getElectives', async (req,res) =>{
     }
 })
 router.post('/StudentElective',(req,res)=>{
-    StuEle.findOne({S_ID:req.body.S_ID},(err,elec)=>{
+    StuEle.findOne({S_ID:req.body.S_ID,ELECTIVE_ID:req.body.ELECTIVE_ID},(err,elec)=>{
         if(err){
             console.log(err)
             res.json(err)
@@ -136,7 +136,7 @@ router.post('/StudentElective',(req,res)=>{
             }else{
 
             res.json({
-                message:'ID is not available'
+                message:'Already Registered'
             })   
             }
         }
