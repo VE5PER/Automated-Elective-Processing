@@ -176,6 +176,7 @@ class _loginformState extends State<loginform> {
                     _username.clear();
                     _password.clear();
                     await takeElectives();
+                    await getElectives();
 
 
 

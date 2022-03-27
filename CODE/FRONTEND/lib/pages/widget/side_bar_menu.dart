@@ -50,6 +50,7 @@ class _SideBarState extends State<SideBar> {
               title: "Elective Preference Selection",
               icon: "assets/menu_report.png",
               press: () {
+
                 Navigator.push(context, MaterialPageRoute(builder: (context) => chooseElective()));
               },
             ),

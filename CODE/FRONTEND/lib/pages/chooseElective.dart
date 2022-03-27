@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:automated_elective_processing/functions/notify.dart';
-import 'package:automated_elective_processing/models/elective.dart';
 import 'package:automated_elective_processing/models/student.dart';
 import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +9,7 @@ import 'package:http/http.dart' as http;
 
 import '../main.dart';
 
-List eleIds=[];
+List eleIds = [];
 
 class chooseElective extends StatefulWidget {
   const chooseElective({Key? key}) : super(key: key);
@@ -20,118 +19,114 @@ class chooseElective extends StatefulWidget {
 }
 
 class _chooseElectiveState extends State<chooseElective> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           print(eleIds);
-          int success=1;
-          for(var i in eleIds){
-            String electiveJson='''{
+          int success = 1;
+          for (var i in eleIds) {
+            String electiveJson = '''{
                       "S_ID":"${currentUser["S_ID"]}",
                       "ELECTIVE_ID":"${i.toString()}"
                       }
                   ''';
             String status = await setElective(electiveJson);
             print(status);
-            if(status.contains('Already Registered')) {
+            if (status.contains('Already Registered')) {
               showScreenDialog(context, "Already Registered");
-              success=0;
+              success = 0;
               break;
             }
-
           }
-          if(success==1){
+          if (success == 1) {
             showScreenDialog(context, "Successfully registered");
           }
           eleIds.clear();
           await takeElectives();
-
         },
         label: Text('Confirm Selection'),
-
       ),
-
-      appBar: AppBar(title: Text("Choose Electives"),
-     ),
-
-      body: ele.length>0?Container(
-        padding: EdgeInsets.all(20),
-        child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 3 / 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20),
-            itemCount: ele.length,
-            itemBuilder: (BuildContext ctx, index) {
-              return InkWell(
-                onTap: (){
-                  setState(() {
-                    if(eleIds.contains(ele[index][0])){
-                      eleIds.remove(ele[index][0]);
-                    }
-                    else{
-                      eleIds.add(ele[index][0]);
-                      }
-                    
-                  });
-                },
-                child: Container(
-                  padding: EdgeInsets.all(5),
-                  alignment: Alignment.center,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text('Elective ID: ${ele[index][0]}'),
-                      Text('Ref Link: ${ele[index][1]}'),
-                      Text('Elective Name: ${ele[index][2]}'),
-                      Text('No of Seats: ${ele[index][3]}'),
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                      color: eleIds.contains(ele[index][0])? Colors.red : Colors.amber,
-                      borderRadius: BorderRadius.circular(15)),
-                ),
-              );
-            }),
-      ):Container(),
-
-
-
-
+      appBar: AppBar(
+        title: Text("Choose Electives"),
+      ),
+      body: ele.length > 0
+          ? Container(
+              padding: EdgeInsets.all(20),
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      childAspectRatio: 3 / 2,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20),
+                  itemCount: ele.length,
+                  itemBuilder: (BuildContext ctx, index) {
+                    return InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (eleIds.contains(ele[index][0])) {
+                            eleIds.remove(ele[index][0]);
+                          } else {
+                            eleIds.add(ele[index][0]);
+                          }
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text('Elective ID: ${ele[index][0]}'),
+                            Text('Elective Name: ${ele[index][1]}'),
+                            Text('Ref link: ${ele[index][2]}'),
+                            Text('No of Seats: ${ele[index][3]}'),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            color: eleIds.contains(ele[index][0])
+                                ? Colors.red
+                                : Colors.amber,
+                            borderRadius: BorderRadius.circular(15)),
+                      ),
+                    );
+                  }),
+            )
+          : Container(),
     );
   }
 }
 
 Future<List> getElectives() async {
-  final response = await http.get(Uri.parse('http://localhost:8080/getElectives'));
+  final response =
+      await http.get(Uri.parse('http://localhost:8080/getElectives'));
 
   if (response.statusCode == 200 || response.statusCode == 201) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    var x =  jsonDecode(response.body);
+    var x = jsonDecode(response.body);
     var electiveList = x["ElectiveList"];
     List elect = [];
 
-    for(var i in electiveList){
-      elect.add([i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'],i['SEATS']]);
+    for (var i in electiveList) {
+      elect.add([
+        i['ELECTIVE_ID'],
+        i['ELECTIVE_NAME'],
+        i['ELECTIVE_PDF_LINK'],
+        i['SEATS']
+      ]);
 
-    //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
+      //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
     }
-    ele=elect;
+    ele = elect;
     return elect;
-
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
     throw Exception('Failed to load elective list');
   }
 }
-
 
 Future<String> setElective(String stu) async {
   final response = await http.post(
@@ -149,6 +144,5 @@ Future<String> setElective(String stu) async {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
     throw Exception('Elective Add error');
-
   }
 }
