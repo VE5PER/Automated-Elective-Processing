@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:automated_elective_processing/models/student.dart';
 import 'package:http/http.dart' as http;
 import 'package:automated_elective_processing/dashboard.dart';
 import 'package:automated_elective_processing/functions/notify.dart';
@@ -78,6 +79,9 @@ class _changeformState extends State<changeform> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter old password';
                   }
+                  else if(value.toString() != currentUser['PASSWORD']){
+                    return "Wrong Old Password";
+                  }
                   return null;
                 },
               ),
@@ -91,7 +95,7 @@ class _changeformState extends State<changeform> {
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter new Password';
-                  } else if (value.length < 8) {
+                  } else if (value.length < 2) {
                     return 'Please enter a longer password';
                   }
                   return null;
@@ -116,15 +120,15 @@ class _changeformState extends State<changeform> {
               onPressed: () async {
                 if (pwdform.currentState!.validate()) {
                   String changepwdJson = '''{
-                      "S_ID":"${_oldpwd.text}",
-                      "PASSWORD":"${_newpwd.text}"
+                      "S_ID":"${currentUser["S_ID"]}",
+                      "newPassword":"${_newpwd.text}"
                       }
                   ''';
                   String status = await pwdchange(changepwdJson);
                   print(status);
 
-                  if (status.contains('ID or Password Incorrect')) {
-                    showScreenDialog(context, 'ID or Password Incorrect');
+                  if (status.contains('Changed Successfully')) {
+                    showScreenDialog(context, 'Password Changed Successfully');
                   }
                 }
               },
@@ -139,7 +143,7 @@ class _changeformState extends State<changeform> {
 
 Future<String> pwdchange(String stu) async {
   final response = await http.post(
-    Uri.parse(src + '/change_pwd'),
+    Uri.parse(src + '/changePassword'),
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
