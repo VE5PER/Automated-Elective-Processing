@@ -111,6 +111,7 @@ router.get('/getElectives', async (req,res) =>{
         res.json({status: error})
     }
 })
+
 router.post('/StudentElective',(req,res)=>{
     StuEle.findOne({S_ID:req.body.S_ID,ELECTIVE_ID:req.body.ELECTIVE_ID},(err,elec)=>{
         if(err){
@@ -153,44 +154,26 @@ router.post('/takeElectives', async (req,res) =>{
         res.json({status: error})
     }
 })
-// router.put('/changePassword',(req,res)=>{
-//     User.findOne({S_ID:req.body.S_ID},(err,user)=>{
-//         if(err){
-//             console.log(err)
-//             res.json(err)
-//         }else{
-//             if(user!=null){
-//                 const user = User({
-//                     S_ID:req.body.S_ID,
-//                     PASSWORD:req.body.PASSWORD,
-//                     S_NAME: req.body.S_NAME,
-//                     YEAR: req.body.YEAR,
-//                     SEMESTER: req.body.SEMESTER,
-//                     USER_NAME: req.body.USER_NAME, 
-//                     E_MAIL: req.body.E_MAIL
 
-//                 })
-//                 user.save()
-//                 .then((err)=>{
-//                     if(err){
-//                         console.log(err)
-//                         res.json(err)
-//                     }else{
-//                         console.log(user)
-//                         res.json(user)
-//                     }
-                    
-//                 })
-//             }else{
 
-//             res.json({
-//                 message:'User not available'
-//             })   
-//             }
-//         }
-//     })
-    
-// })
+router.post('/changePassword',async (req,res)=> {
+   const result =await User.updateOne(
+        { S_ID:req.body.S_ID}, 
+        { $set : {PASSWORD : req.body.newPassword}},
+        {upsert: false}
+
+       
+
+    ).then((obj) => {
+        console.log('Updated');
+        res.json({  message:'Changed Successfully'})
+       
+  })
+ .catch((err) => {
+    console.log('Error: ' + err);
+})
+
+})
 
 
 module.exports = router

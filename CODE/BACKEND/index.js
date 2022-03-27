@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080 || process.env.PORT
+const port = 8432 || process.env.PORT
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
@@ -14,5 +14,5 @@ app.use(bodyParser.json())
 app.use('/',require('./routes/user.routes.js'))
 
 app.listen(port,()=>{
-    console.log('port running on', port)
+    console.log('Port running on', port)
 })
