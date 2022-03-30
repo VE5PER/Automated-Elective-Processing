@@ -5,6 +5,8 @@ import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'logout.dart';
+
 class tempDash extends StatefulWidget {
   const tempDash({Key? key}) : super(key: key);
 
@@ -59,11 +61,23 @@ class _tempDashState extends State<tempDash> {
           children: [
             Icon(Icons.document_scanner, size: 30, color: AppColor.purple,),
             TextButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addElective()));// re
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addElective()));
             }, child: Text("Add Elective", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
           ],
         ),
+          SizedBox(
+            height: 50,
+          ),
+          Row(
 
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.logout, size: 30, color: AppColor.purple,),
+              TextButton(onPressed: (){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+              }, child: Text("Logout", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
+            ],
+          ),
 
       ],
       ),

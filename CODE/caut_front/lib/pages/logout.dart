@@ -1,5 +1,8 @@
 import 'package:automated_elective_processing/common/app_colors.dart';
+import 'package:automated_elective_processing/json_test.dart';
 import 'package:flutter/material.dart';
+
+import '../main.dart';
 
 
 class logout extends StatelessWidget {
@@ -23,7 +26,11 @@ class logout extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontSize: 30,
             color: AppColor.yellow
-            ))
+            )),
+            SizedBox(height: 50,),
+            IconButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => login()));
+            }, icon: Icon(Icons.door_back_door), color: Colors.white,iconSize: 200,)
         ]
         ),
         );
