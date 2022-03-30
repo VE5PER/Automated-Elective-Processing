@@ -7,6 +7,7 @@ import 'package:automated_elective_processing/pages/add_user.dart';
 import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
+import 'package:automated_elective_processing/pages/fac_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -84,7 +85,7 @@ class _loginformState extends State<loginform> {
   final login = GlobalKey<FormState>();
 
   void _showWelcomeScreen() {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) =>
@@ -92,7 +93,7 @@ class _loginformState extends State<loginform> {
   }
 
   void _addStudent() {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) =>
@@ -100,7 +101,7 @@ class _loginformState extends State<loginform> {
   }
 
   void _adminDash() {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) =>
@@ -198,7 +199,7 @@ class _loginformState extends State<loginform> {
             IconButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => dashboard()));
+                      MaterialPageRoute(builder: (context) => App()));
                 },
                 icon: Icon(Icons.dashboard))
           ],

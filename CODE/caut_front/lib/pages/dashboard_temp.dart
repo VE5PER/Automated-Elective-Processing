@@ -35,7 +35,7 @@ class _tempDashState extends State<tempDash> {
           children: [
             Icon(Icons.person_add, size: 30, color: AppColor.purple,),
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => addUser()));// re
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addUser()));// re
             }, child: Text("Add User", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
           ],
         ),
@@ -47,7 +47,7 @@ class _tempDashState extends State<tempDash> {
           children: [
              Icon(Icons.select_all, size: 30, color: AppColor.purple, ),
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => chooseElective()));// re
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => chooseElective()));// re
             }, child: Text("Choose Elective", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
           ],
         ),
@@ -59,7 +59,7 @@ class _tempDashState extends State<tempDash> {
           children: [
             Icon(Icons.document_scanner, size: 30, color: AppColor.purple,),
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => addElective()));// re
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addElective()));// re
             }, child: Text("Add Elective", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
           ],
         ),
