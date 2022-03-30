@@ -53,7 +53,7 @@ class _chooseElectiveState extends State<chooseElective> {
       appBar: AppBar(
         leading:
           IconButton(icon: Icon(Icons.arrow_back_ios),onPressed: (){
-            Navigator.pop(context);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => dashboard()));
           },),
 
         title: Text("Choose Electives"),
