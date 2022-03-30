@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
         builder: (context) {
           switch (navIndex) {
             case 0:
-              Navigator.push(
+              /*Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => TableSimple(
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                               'Day 5'
                             ],
                           )));
-              break;
+              break;*/
 
             case 1:
               return Center(child: Text('VIEW STUDENTS'));

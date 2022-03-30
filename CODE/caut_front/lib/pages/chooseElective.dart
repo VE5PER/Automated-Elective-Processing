@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:automated_elective_processing/dashboard.dart';
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/student.dart';
 import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
@@ -45,10 +46,16 @@ class _chooseElectiveState extends State<chooseElective> {
           }
           eleIds.clear();
           await takeElectives();
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => dashboard()));
         },
         label: Text('Confirm Selection'),
       ),
       appBar: AppBar(
+        leading:
+          IconButton(icon: Icon(Icons.arrow_back_ios),onPressed: (){
+            Navigator.pop(context);
+          },),
+
         title: Text("Choose Electives"),
       ),
       body: ele.length > 0
