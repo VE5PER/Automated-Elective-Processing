@@ -1,6 +1,7 @@
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/elective.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
+import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -25,8 +26,12 @@ class _addElectiveState extends State<addElective> {
     final addElective = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () {
+
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => tempDash()));
+        }, ),
         title: Text(
-          "Add User",
+          "Add Elective",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: AppColor.purple,
