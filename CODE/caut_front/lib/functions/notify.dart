@@ -14,10 +14,13 @@ void showScreenDialog(BuildContext context, String msg) {
     pageBuilder: (_, __, ___) {
       return Center(
         child: Container(
-          height: 50,
+          height: 70,
+
           child: SizedBox.expand(child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(msg),
+
+              Container(child: Text(msg, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),)),
             ],
           )),
           margin: EdgeInsets.symmetric(horizontal: 20),
