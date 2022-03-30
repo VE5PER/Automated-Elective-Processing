@@ -196,12 +196,12 @@ class _loginformState extends State<loginform> {
               },
               child: const Text('Login'),
             ),
-            IconButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => dashboard()));
-                },
-                icon: Icon(Icons.dashboard))
+            // IconButton(
+            //     onPressed: () {
+            //       Navigator.pushReplacement(context,
+            //           MaterialPageRoute(builder: (context) => dashboard()));
+            //     },
+            //     icon: Icon(Icons.dashboard))
           ],
         ),
       ),

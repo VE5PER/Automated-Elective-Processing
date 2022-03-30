@@ -70,7 +70,7 @@ class _addUserState extends State<addUser> {
                     controller: S_ID,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter STUDENT ID';
+                        return 'Please enter Student ID';
                       }
                       return null;
                     },
@@ -78,7 +78,7 @@ class _addUserState extends State<addUser> {
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(
-                        Icons.person,
+                        Icons.remove_red_eye_outlined,
                         color: AppColor.yellow,
                       ),
                       label: Text(
@@ -113,7 +113,7 @@ class _addUserState extends State<addUser> {
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter NAME';
+                        return 'Please enter Name';
                       }
                       return null;
                     },
@@ -122,7 +122,7 @@ class _addUserState extends State<addUser> {
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(
-                        Icons.person,
+                        Icons.numbers_rounded,
                         color: AppColor.yellow,
                       ),
                       label: Text(
@@ -135,7 +135,7 @@ class _addUserState extends State<addUser> {
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter YEAR';
+                        return 'Please enter Year';
                       }
                       return null;
                     },
@@ -144,7 +144,7 @@ class _addUserState extends State<addUser> {
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(
-                        Icons.person,
+                        Icons.numbers_rounded,
                         color: AppColor.yellow,
                       ),
                       label: Text(
@@ -157,7 +157,7 @@ class _addUserState extends State<addUser> {
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter SEMESTER';
+                        return 'Please enter Semester';
                       }
                       return null;
                     },
@@ -166,7 +166,7 @@ class _addUserState extends State<addUser> {
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(
-                        Icons.person,
+                        Icons.verified_user,
                         color: AppColor.yellow,
                       ),
                       label: Text(
@@ -188,7 +188,7 @@ class _addUserState extends State<addUser> {
                   TextFormField(
                     decoration: InputDecoration(
                       icon: Icon(
-                        Icons.person,
+                        Icons.email,
                         color: AppColor.yellow,
                       ),
                       label: Text(
