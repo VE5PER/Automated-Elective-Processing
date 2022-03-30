@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'dashboard_temp.dart';
+
 class addUser extends StatefulWidget {
   const addUser({Key? key}) : super(key: key);
 
@@ -37,6 +39,10 @@ class _addUserState extends State<addUser> {
               fontSize: 30),
         ),
         backgroundColor: AppColor.black,
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () {
+
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => tempDash()));
+        }, ),
       ),
       backgroundColor: AppColor.purple,
       body: Row(
