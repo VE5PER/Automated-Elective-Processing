@@ -199,7 +199,7 @@ class _loginformState extends State<loginform> {
             IconButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => App()));
+                      MaterialPageRoute(builder: (context) => dashboard()));
                 },
                 icon: Icon(Icons.dashboard))
           ],
