@@ -14,6 +14,7 @@ class change_pwd extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(icon: Icon(Icons.arrow_back,color: AppColor.yellow), onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));} )],
         title: Text(
           "Change Password",
           textAlign: TextAlign.center,
