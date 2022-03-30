@@ -84,7 +84,7 @@ class _loginformState extends State<loginform> {
   final login = GlobalKey<FormState>();
 
   void _showWelcomeScreen() {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) =>
@@ -92,7 +92,7 @@ class _loginformState extends State<loginform> {
   }
 
   void _addStudent() {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) =>
@@ -100,7 +100,7 @@ class _loginformState extends State<loginform> {
   }
 
   void _adminDash() {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) =>

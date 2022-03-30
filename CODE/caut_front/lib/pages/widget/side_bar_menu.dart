@@ -36,7 +36,7 @@ class _SideBarState extends State<SideBar> {
               title: "Change Password",
               icon: "assets/reset_password.png",
               press: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => change_pwd()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => change_pwd()));
               },
             ),
             DrawerListTile(
@@ -51,7 +51,7 @@ class _SideBarState extends State<SideBar> {
               icon: "assets/menu_report.png",
               press: () {
 
-                Navigator.push(context, MaterialPageRoute(builder: (context) => chooseElective()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => chooseElective()));
               },
             ),
             DrawerListTile(

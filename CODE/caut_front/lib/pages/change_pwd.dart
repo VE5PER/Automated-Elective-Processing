@@ -65,7 +65,7 @@ class _changeformState extends State<changeform> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Welcome',
+            Text('Change Password',
                 style: TextStyle(
                     color: Colors.yellow,
                     fontWeight: FontWeight.bold,
@@ -75,6 +75,7 @@ class _changeformState extends State<changeform> {
               child: TextFormField(
                 controller: _oldpwd,
                 decoration: const InputDecoration(hintText: 'old password'),
+                obscureText:true,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter old password';
