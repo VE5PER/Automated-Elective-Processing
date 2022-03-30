@@ -40,7 +40,7 @@ class _tempDashState extends State<tempDash> {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addUser()));// re
             }, child: Text("Add User", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
           ],
-        ),
+        ), /*
         SizedBox(
           height: 50,
         ),
@@ -53,6 +53,9 @@ class _tempDashState extends State<tempDash> {
             }, child: Text("Choose Elective", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
           ],
         ),
+
+        */
+
         SizedBox(
           height: 50,
         ),
