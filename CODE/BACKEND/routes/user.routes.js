@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const Elective = require('../models/elective.model')
 const StuEle = require('../models/table3.model')
+const Faculty = require('../models/faculty.model')
 
 router.post('/signup',(req,res)=>{
     User.findOne({S_ID:req.body.S_ID},(err,user)=>{
@@ -173,6 +174,45 @@ router.post('/changePassword',async (req,res)=> {
     console.log('Error: ' + err);
 })
 
+})
+
+router.post('/addFaculty',(req,res)=>{
+    Faculty.findOne({FACULTY_ID:req.body.FACULTY_ID},(err,faculty)=>{
+        if(err){
+            console.log(err)
+            res.json(err)
+        }else{
+            if(faculty==null){
+                const faculty = Faculty({
+                    FACULTY_ID:req.body.FACULTY_ID,
+                    PASSWORD:req.body.PASSWORD,
+                    FACULTY_NAME: req.body.FACULTY_NAME,
+                    FACULTY_DOJ: req.body.FACULTY_DOJ,
+                    FACULTY_POS: req.body.FACULTY_POS,
+                    USER_NAME: req.body.USER_NAME, 
+                    E_MAIL: req.body.E_MAIL,
+
+                })
+                faculty.save()
+                .then((err)=>{
+                    if(err){
+                        console.log(err)
+                        res.json(err)
+                    }else{
+                        console.log(faculty)
+                        res.json(faculty)
+                    }
+                    
+                })
+            }else{
+
+            res.json({
+                message:'ID is not available'
+            })   
+            }
+        }
+    })
+    
 })
 
 

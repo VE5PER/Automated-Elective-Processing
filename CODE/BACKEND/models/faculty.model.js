@@ -10,21 +10,19 @@ const facultySchema = new mongoose.Schema({
         required: true
     },
     FACULTY_DOJ: {
-        type: Date,
+        type: String,
         required: true
     },
-    FACULTY_QUAL: {
+    FACULTY_POS: {
         type: String,
         required: true
     },    
     USER_NAME: {
         type: String,
-        ref: 'User',
         required: true
     },
     E_MAIL: {
         type: String,
-        ref: 'User',
         required: true
     }
 }, {
