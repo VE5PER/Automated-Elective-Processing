@@ -9,6 +9,7 @@ import 'package:automated_elective_processing/pages/dashboard/widget/profile_car
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:automated_elective_processing/pages/fac_page.dart';
 import 'package:automated_elective_processing/pages/add_faculty.dart';
+import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,7 +27,7 @@ class login extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         // '/': (context) => const SignUpScreen(),
-        '/': (context) => addFaculty(),
+        '/': (context) => batchAlloc(),
         '/welcome': (context) => WelcomeScreen(),
       },
     );

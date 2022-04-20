@@ -20,6 +20,17 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
     false
   ];
 
+  final List _isTap = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -53,12 +64,9 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                   });
                 },
                 onTap: () {
-                  actions: [
-                  PopupMenuButton<int>(
-                    itemBuilder: (context) => [
-                      PopupMenuItem(child: Text('Add Users'))
-                    ],
-                  )];
+                  _isTap[0] = !_isTap[0];
+                  setState(() {
+                  });
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -83,6 +91,22 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                         height: 2,
                         width: 20,
                         color: Color(0xFF051441),
+                      ),
+                    ),
+                    Visibility(
+                      maintainAnimation: true,
+                      maintainState: true,
+                      maintainSize: true,
+                      visible: _isTap[0],
+                      child: Container(
+                        color: Colors.white,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text("hy"),
+                            Text("hy")
+                          ],
+                        ),
                       ),
                     )
                   ],
