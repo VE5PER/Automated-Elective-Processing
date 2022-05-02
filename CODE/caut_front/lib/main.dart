@@ -26,8 +26,8 @@ class login extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        // '/': (context) => const SignUpScreen(),
-        '/': (context) => batchAlloc(),
+         '/': (context) => const SignUpScreen(),
+        // '/': (context) => batchAlloc(),
         '/welcome': (context) => WelcomeScreen(),
       },
     );
