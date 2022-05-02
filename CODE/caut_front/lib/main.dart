@@ -169,7 +169,7 @@ class _loginformState extends State<loginform> {
               ),
               onPressed: () async {
                 if (_username.text == 'admin' && _password.text == 'admin') {
-                  _adminDash();
+                  batchAlloc();
                 } else if (login.currentState!.validate()) {
                   String loginJson = '''{
                       "S_ID":"${_username.text}",
