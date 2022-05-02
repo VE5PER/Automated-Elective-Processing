@@ -88,13 +88,13 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 shape: BoxShape.circle,
               ),
             ),
-           // eventLoader: (day) {
-              ///make event on 22 and 12 date every month
-             // if (day.day == 22 || day.day == 12) {
-               // return [Event("Event Name", canBubble: true)];
-              //}
-             // return [];
-           // },
+            // eventLoader: (day) {
+            ///make event on 22 and 12 date every month
+            // if (day.day == 22 || day.day == 12) {
+            // return [Event("Event Name", canBubble: true)];
+            //}
+            // return [];
+            // },
           )
         ],
       ),

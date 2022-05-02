@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
         builder: (context) {
           switch (navIndex) {
             case 0:
-              /*Navigator.push(
+            /*Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => TableSimple(

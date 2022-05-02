@@ -11,7 +11,6 @@ class MenuDrawer extends StatelessWidget {
       child: Container(
         color: Color(0xFF077bd7),
         child: Padding(
-
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

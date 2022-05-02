@@ -22,49 +22,62 @@ class _tempDashState extends State<tempDash> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
-      appBar: ResponsiveWidget.isSmallScreen(context)?
-          AppBar(
-            iconTheme: IconThemeData(color: Color(0xFF077bd7)),
-            backgroundColor: Colors.white,
-            elevation: 0,
-            centerTitle: true,
-            title: Text(
-              "Admin",
-              style: TextStyle(
-                color: Color(0xFF077bd7),
-                fontSize: 26,
-                fontWeight: FontWeight.w900,
+        // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
+        appBar: ResponsiveWidget.isSmallScreen(context)
+            ? AppBar(
+                iconTheme: IconThemeData(color: Color(0xFF077bd7)),
+                backgroundColor: Colors.white,
+                elevation: 0,
+                centerTitle: true,
+                title: Text(
+                  "Admin",
+                  style: TextStyle(
+                    color: Color(0xFF077bd7),
+                    fontSize: 26,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              )
+            : PreferredSize(
+                preferredSize: Size(screenSize.width, 70),
+                child: AdminTopBarContents(),
               ),
-            ),
-          ):
-      PreferredSize(
-        preferredSize: Size(screenSize.width, 70),
-        child:AdminTopBarContents(),
-      ),
-      drawer: MenuDrawer(),
-      backgroundColor: AppColor.yellow,
-      body:Center( 
-      child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-      Container(
-        height: 250,
-        width: 300,
-        child: Image.asset('assets/sidebar_image.png')
-        ),
-      SizedBox(
-        height: 25
-      ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.person_add, size: 30, color: AppColor.purple,),
-            TextButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addUser()));// re
-            }, child: Text("Add User", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
-          ],
-        ), /*
+        drawer: MenuDrawer(),
+        backgroundColor: AppColor.yellow,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  height: 250,
+                  width: 300,
+                  child: Image.asset('assets/sidebar_image.png')),
+              SizedBox(height: 25),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.person_add,
+                    size: 30,
+                    color: AppColor.purple,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => addUser())); // re
+                      },
+                      child: Text(
+                        "Add User",
+                        style: TextStyle(
+                            color: AppColor.purple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25),
+                      )),
+                ],
+              ),
+              /*
         SizedBox(
           height: 50,
         ),
@@ -80,36 +93,60 @@ class _tempDashState extends State<tempDash> {
 
         */
 
-        SizedBox(
-          height: 50,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.document_scanner, size: 30, color: AppColor.purple,),
-            TextButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => addElective()));
-            }, child: Text("Add Elective", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
-          ],
-        ),
-          SizedBox(
-            height: 50,
-          ),
-          Row(
-
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.logout, size: 30, color: AppColor.purple,),
-              TextButton(onPressed: (){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
-              }, child: Text("Logout", style: TextStyle(color: AppColor.purple, fontWeight: FontWeight.bold, fontSize: 25),)),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.document_scanner,
+                    size: 30,
+                    color: AppColor.purple,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => addElective()));
+                      },
+                      child: Text(
+                        "Add Elective",
+                        style: TextStyle(
+                            color: AppColor.purple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25),
+                      )),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.logout,
+                    size: 30,
+                    color: AppColor.purple,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => logout()));
+                      },
+                      child: Text(
+                        "Logout",
+                        style: TextStyle(
+                            color: AppColor.purple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25),
+                      )),
+                ],
+              ),
             ],
           ),
-
-      ],
-      ),
-      )
-
-    );
+        ));
   }
 }

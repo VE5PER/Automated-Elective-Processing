@@ -4,35 +4,40 @@ import 'package:flutter/material.dart';
 
 import '../main.dart';
 
-
 class logout extends StatelessWidget {
-  const logout({ Key? key }) : super(key: key);
+  const logout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       backgroundColor: AppColor.bgSideMenu,
-      body:  Column(
-          children: [
-          Center(
-           child:SizedBox(
+      body: Column(children: [
+        Center(
+          child: SizedBox(
             height: 400,
             width: 400,
             child: Image.asset('assets/sidebar_image.png'),
-          ),),
-          Text('Thank You. Please log in again', 
-          textAlign: TextAlign.center, 
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-            color: AppColor.yellow
-            )),
-            SizedBox(height: 50,),
-            IconButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => login()));
-            }, icon: Icon(Icons.door_back_door), color: Colors.white,iconSize: 200,)
-        ]
+          ),
         ),
-        );
+        Text('Thank You. Please log in again',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+                color: AppColor.yellow)),
+        SizedBox(
+          height: 50,
+        ),
+        IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => login()));
+          },
+          icon: Icon(Icons.door_back_door),
+          color: Colors.white,
+          iconSize: 200,
+        )
+      ]),
+    );
   }
 }

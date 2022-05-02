@@ -26,7 +26,7 @@ class login extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-         '/': (context) => const SignUpScreen(),
+        '/': (context) => const SignUpScreen(),
         // '/': (context) => batchAlloc(),
         '/welcome': (context) => WelcomeScreen(),
       },
@@ -199,12 +199,12 @@ class _loginformState extends State<loginform> {
               },
               child: const Text('Login'),
             ),
-            // IconButton(
-            //     onPressed: () {
-            //       Navigator.pushReplacement(context,
-            //           MaterialPageRoute(builder: (context) => dashboard()));
-            //     },
-            //     icon: Icon(Icons.dashboard))
+            IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => dashboard()));
+                },
+                icon: Icon(Icons.dashboard))
           ],
         ),
       ),

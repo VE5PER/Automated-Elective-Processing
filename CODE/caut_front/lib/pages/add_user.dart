@@ -39,10 +39,15 @@ class _addUserState extends State<addUser> {
               fontSize: 30),
         ),
         backgroundColor: AppColor.black,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () {
-
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => tempDash()));
-        }, ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => tempDash()));
+          },
+        ),
       ),
       backgroundColor: AppColor.purple,
       body: Row(

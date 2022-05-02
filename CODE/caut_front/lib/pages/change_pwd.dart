@@ -14,7 +14,12 @@ class change_pwd extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.arrow_back,color: AppColor.yellow), onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => dashboard()));} ),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: AppColor.yellow),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => dashboard()));
+            }),
         title: Text(
           "Change Password",
           textAlign: TextAlign.center,
@@ -76,12 +81,11 @@ class _changeformState extends State<changeform> {
               child: TextFormField(
                 controller: _oldpwd,
                 decoration: const InputDecoration(hintText: 'old password'),
-                obscureText:true,
+                obscureText: true,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter old password';
-                  }
-                  else if(value.toString() != currentUser['PASSWORD']){
+                  } else if (value.toString() != currentUser['PASSWORD']) {
                     return "Wrong Old Password";
                   }
                   return null;

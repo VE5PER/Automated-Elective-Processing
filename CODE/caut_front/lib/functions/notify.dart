@@ -15,16 +15,21 @@ void showScreenDialog(BuildContext context, String msg) {
       return Center(
         child: Container(
           height: 70,
-
-          child: SizedBox.expand(child: Row(
+          child: SizedBox.expand(
+              child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-              Container(child: Text(msg, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),)),
+              Container(
+                  child: Text(
+                msg,
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+              )),
             ],
           )),
           margin: EdgeInsets.symmetric(horizontal: 20),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(40)),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(40)),
         ),
       );
     },

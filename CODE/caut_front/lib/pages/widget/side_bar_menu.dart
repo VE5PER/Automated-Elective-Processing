@@ -36,36 +36,40 @@ class _SideBarState extends State<SideBar> {
               title: "Change Password",
               icon: "assets/reset_password.png",
               press: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => change_pwd()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => change_pwd()));
               },
             ),
             DrawerListTile(
               title: "Elective Agreement policy",
               icon: "assets/menu_onboarding.png",
               press: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => WIP()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
               title: "Elective Preference Selection",
               icon: "assets/menu_report.png",
               press: () {
-
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => chooseElective()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => chooseElective()));
               },
             ),
             DrawerListTile(
               title: "Change Elective",
               icon: "assets/menu_onboarding.png",
               press: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => WIP()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
               title: "Logout",
               icon: "assets/logout.png",
               press: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => logout()));
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => logout()));
               },
             ),
             Spacer(),
@@ -81,7 +85,8 @@ class DrawerListTile extends StatelessWidget {
   final String title, icon;
   final VoidCallback press;
 
-  const DrawerListTile({required this.title,required this.icon, required this.press});
+  const DrawerListTile(
+      {required this.title, required this.icon, required this.press});
   @override
   Widget build(BuildContext context) {
     return ListTile(

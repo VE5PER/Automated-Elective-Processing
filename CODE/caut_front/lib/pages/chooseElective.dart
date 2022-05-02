@@ -27,12 +27,9 @@ class _chooseElectiveState extends State<chooseElective> {
         onPressed: () async {
           print(eleIds);
 
-          if(eleIds.isEmpty){
+          if (eleIds.isEmpty) {
             showScreenDialog(context, "Please choose something!!");
-
-          }
-          else {
-
+          } else {
             int success = 1;
             for (var i in eleIds) {
               String electiveJson = '''{
@@ -63,11 +60,15 @@ class _chooseElectiveState extends State<chooseElective> {
         label: Text('Confirm Selection'),
       ),
       appBar: AppBar(
-        leading:
-          IconButton(icon: Icon(Icons.arrow_back_ios),onPressed: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => dashboard()));
-          },),
-
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => dashboard()));
+          },
+        ),
         title: Text("Choose Electives"),
       ),
       body: ele.length > 0

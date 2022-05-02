@@ -26,10 +26,15 @@ class _addElectiveState extends State<addElective> {
     final addElective = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () {
-
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => tempDash()));
-        }, ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => tempDash()));
+          },
+        ),
         title: Text(
           "Add Elective",
           textAlign: TextAlign.center,

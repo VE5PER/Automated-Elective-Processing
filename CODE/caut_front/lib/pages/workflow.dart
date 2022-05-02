@@ -34,9 +34,7 @@ void main() {
 
 class TableSimple extends StatelessWidget {
   TableSimple(
-      {required this.data,
-      required this.titleColumn,
-      required this.titleRow});
+      {required this.data, required this.titleColumn, required this.titleRow});
 
   final List<List<String>> data;
   final List<String> titleColumn;

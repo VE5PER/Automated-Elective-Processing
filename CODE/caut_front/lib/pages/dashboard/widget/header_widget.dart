@@ -15,14 +15,14 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       margin: EdgeInsets.all(10),
       child: Row(
         children: [
-            IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: AppColor.black,
-              ),
-              onPressed: Provider.of<MenuController>(context, listen: false)
-                  .controlMenu,
+          IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: AppColor.black,
             ),
+            onPressed:
+                Provider.of<MenuController>(context, listen: false).controlMenu,
+          ),
           Text(
             "Dashboard",
             style: TextStyle(

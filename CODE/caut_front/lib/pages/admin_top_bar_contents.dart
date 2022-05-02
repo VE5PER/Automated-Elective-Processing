@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AdminTopBarContents extends StatefulWidget {
-
   AdminTopBarContents();
 
   @override
@@ -20,16 +19,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
     false
   ];
 
-  final List _isTap = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+  final List _isTap = [false, false, false, false, false, false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +28,13 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
       color: Colors.white.withOpacity(0.5),
       child: Padding(
         padding: EdgeInsets.all(20),
-        child:
-        Expanded(
+        child: Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(width: screenSize.width/4,),
+              SizedBox(
+                width: screenSize.width / 4,
+              ),
               Text(
                 'Admin',
                 style: TextStyle(
@@ -58,15 +49,12 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
               InkWell(
                 onHover: (value) {
                   setState(() {
-                    value
-                        ? _isHovering[0] = true
-                        : _isHovering[0] = false;
+                    value ? _isHovering[0] = true : _isHovering[0] = false;
                   });
                 },
                 onTap: () {
                   _isTap[0] = !_isTap[0];
-                  setState(() {
-                  });
+                  setState(() {});
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -78,8 +66,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                               ? Color(0xFF077bd7)
                               : Color(0xFF077bd7),
                           fontWeight: FontWeight.bold,
-                          fontSize: 16
-                      ),
+                          fontSize: 16),
                     ),
                     SizedBox(height: 5),
                     Visibility(
@@ -102,10 +89,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                         color: Colors.white,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text("hy"),
-                            Text("hy")
-                          ],
+                          children: [Text("hy"), Text("hy")],
                         ),
                       ),
                     )
@@ -116,9 +100,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
               InkWell(
                 onHover: (value) {
                   setState(() {
-                    value
-                        ? _isHovering[1] = true
-                        : _isHovering[1] = false;
+                    value ? _isHovering[1] = true : _isHovering[1] = false;
                   });
                 },
                 onTap: () {},
@@ -132,8 +114,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                               ? Color(0xFF077bd7)
                               : Color(0xFF077bd7),
                           fontWeight: FontWeight.bold,
-                          fontSize: 16
-                      ),
+                          fontSize: 16),
                     ),
                     SizedBox(height: 5),
                     Visibility(
@@ -154,9 +135,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
               InkWell(
                 onHover: (value) {
                   setState(() {
-                    value
-                        ? _isHovering[2] = true
-                        : _isHovering[2] = false;
+                    value ? _isHovering[2] = true : _isHovering[2] = false;
                   });
                 },
                 onTap: () {},
@@ -170,8 +149,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                               ? Color(0xFF077bd7)
                               : Color(0xFF077bd7),
                           fontWeight: FontWeight.bold,
-                          fontSize: 16
-                      ),
+                          fontSize: 16),
                     ),
                     SizedBox(height: 5),
                     Visibility(
@@ -192,9 +170,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
               InkWell(
                 onHover: (value) {
                   setState(() {
-                    value
-                        ? _isHovering[3] = true
-                        : _isHovering[3] = false;
+                    value ? _isHovering[3] = true : _isHovering[3] = false;
                   });
                 },
                 onTap: () {},
@@ -208,8 +184,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                               ? Color(0xFF077bd7)
                               : Color(0xFF077bd7),
                           fontWeight: FontWeight.bold,
-                          fontSize: 16
-                      ),
+                          fontSize: 16),
                     ),
                     SizedBox(height: 5),
                     Visibility(
@@ -226,13 +201,10 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                   ],
                 ),
               ),
-
             ],
           ),
         ),
-
       ),
-
     );
     //);
   }

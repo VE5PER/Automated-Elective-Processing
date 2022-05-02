@@ -45,20 +45,20 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                   ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        child: Column(
-                          children: [
-                            CalendarWidget(),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            ProfileCardWidget(),
-                          ],
-                        ),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          CalendarWidget(),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ProfileCardWidget(),
+                        ],
                       ),
                     ),
+                  ),
                 ],
               ),
             ),

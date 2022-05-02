@@ -21,9 +21,9 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-              Expanded(
-                child: SideBar(),
-              ),
+            Expanded(
+              child: SideBar(),
+            ),
 
             /// Main Body Part
             Expanded(

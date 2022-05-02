@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 
 import 'pages/home_page.dart';
 
-
-
 /// Let's start to make responsive website
 /// First make app responsive class
 
