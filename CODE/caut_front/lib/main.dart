@@ -110,6 +110,13 @@ class _loginformState extends State<loginform> {
             builder: (context) =>
                 tempDash())); // redirect to dashboard student or faculty //
   }
+  void _batchAlloc() {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                batchAlloc())); // redirect to dashboard student or faculty //
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +176,7 @@ class _loginformState extends State<loginform> {
               ),
               onPressed: () async {
                 if (_username.text == 'admin' && _password.text == 'admin') {
-                  batchAlloc();
+                  _batchAlloc();
                 } else if (login.currentState!.validate()) {
                   String loginJson = '''{
                       "S_ID":"${_username.text}",
