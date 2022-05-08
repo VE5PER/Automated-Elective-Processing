@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  syncfusion_flutter_pdfviewer: ^20.1.51-beta
   flutter:
     sdk: flutter
 

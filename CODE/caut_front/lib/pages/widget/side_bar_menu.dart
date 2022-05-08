@@ -2,6 +2,7 @@ import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:automated_elective_processing/pages/change_pwd.dart';
+import 'package:automated_elective_processing/pages/syllabus.dart';
 import 'package:automated_elective_processing/pages/logout.dart';
 
 import '../WIP.dart';
@@ -62,6 +63,14 @@ class _SideBarState extends State<SideBar> {
               press: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => WIP()));
+              },
+            ),
+            DrawerListTile(
+              title: "Elective curriculum",
+              icon: "assets/menu_onboarding.png",
+              press: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => syllabus()));
               },
             ),
             DrawerListTile(
