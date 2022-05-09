@@ -21,6 +21,8 @@ class _batchAllocState extends State<batchAlloc> {
   String dropDownValue = 'Select Year';
   String dropDownValue2 = 'Select Semester';
   String dropDownValue3 = 'Select Elective';
+  final addBatch = GlobalKey<FormState>();
+  final TextEditingController batchSize = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -48,97 +50,129 @@ class _batchAllocState extends State<batchAlloc> {
         drawer: MenuDrawer(),
         backgroundColor: AppColor.yellow,
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(height: 25),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      DropdownButton<String>(
-                        value: dropDownValue,
-                        items: <String>['Select Year', '1', '2', '3', '4']
-                            .map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      DropdownButton<String>(
-                        value: dropDownValue2,
-                        items: <String>['Select Semester', '1', '2', '3', '4']
-                            .map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      DropdownButton<String>(
-                        value: dropDownValue3,
-                        items: <String>[
-                          'Select Elective',
-                          'bla',
-                          'abl',
-                          'lab',
-                          'bal'
-                        ].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
-                      )
-                    ],
-                  ),
-                  Column(children: [
-                    SizedBox(
-                        width: 150.0,
-                        child: TextField(
-                          style: TextStyle(
-                              fontSize: 20.0, height: 1.0, color: Colors.black),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Batch Size',
-                            hintText: 'Batch Size',
+          child: Form(
+            key: addBatch,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        DropdownButton<String>(
+                          value: dropDownValue,
+                          items: <String>['Select Year', '1', '2', '3', '4']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (_) {},
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        DropdownButton<String>(
+                          value: dropDownValue2,
+                          items: <String>['Select Semester', '1', '2', '3', '4']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (_) {},
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Column(
+                        children: [
+                          DropdownButton<String>(
+                            value: dropDownValue3,
+                            items: <String>[
+                              'Select Elective',
+                              'bla',
+                              'abl',
+                              'lab',
+                              'bal'
+                            ].map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (_) {},
+                          )
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Column(children: [
+                        SizedBox(
+                          width: 150.0,
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter Batch Size",
+                              label: Text("Batch Size"),
+                            ),
+                            controller: batchSize,
+                            validator: (String? value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter batch';
+                              }
+                              return null;
+                            },
                           ),
+                        )
+                      ]),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Column(children: [
+                        SizedBox(
+                            width: 200.0,
+                            child: TextField(
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                  height: 0.8,
+                                  color: Colors.black),
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Number of Batches',
+                                hintText: 'Total Batches',
+                              ),
+                            ))
+                      ]),
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(28.0),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                print(batchSize.text);
+                                if (addBatch.currentState!.validate()) {
+                                  //submit
+                                }
+                              },
+                              child: Text("Submit")),
                         ))
-                  ]),
-                  Column(children: [
-                    SizedBox(
-                        width: 200.0,
-                        child: TextField(
-                          style: TextStyle(
-                              fontSize: 20.0, height: 0.8, color: Colors.black),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Number of Batches',
-                            hintText: 'Total Batches',
-                          ),
-                        ))
-                  ])
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ));
   }
