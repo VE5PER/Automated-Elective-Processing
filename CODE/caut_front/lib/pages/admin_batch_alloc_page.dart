@@ -5,6 +5,7 @@ import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:automated_elective_processing/pages/admin_top_bar_contents.dart';
 import 'package:automated_elective_processing/pages/responsive.dart';
 import 'package:automated_elective_processing/pages/admin_menu_drawer.dart';
+import 'package:automated_elective_processing/models/batches.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,11 @@ class _batchAllocState extends State<batchAlloc> {
   String dropDownValue3 = 'Select Elective';
   @override
   Widget build(BuildContext context) {
+    String txt = '';
+    final TextEditingController BATCH_SIZE = TextEditingController();
+    final TextEditingController NUMBER_OF_BATCHES = TextEditingController();
+    final TextEditingController YEAR = TextEditingController();
+    final TextEditingController SEMESTER = TextEditingController();
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
@@ -66,8 +72,13 @@ class _batchAllocState extends State<batchAlloc> {
                             child: Text(value),
                           );
                         }).toList(),
-                        onChanged: (_) {},
+                        onChanged: (String? newValue) {
+    setState(() {
+    dropDownValue = newValue!;
+    });
+    }
                       )
+
                     ],
                   ),
                   Column(
