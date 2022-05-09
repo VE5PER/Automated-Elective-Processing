@@ -36,7 +36,7 @@ class _addElectiveState extends State<addElective> {
           },
         ),
         title: Text(
-          "Add Elective",
+          'Add Elective',
           textAlign: TextAlign.center,
           style: TextStyle(
               color: AppColor.purple,
@@ -67,7 +67,7 @@ class _addElectiveState extends State<addElective> {
                         color: AppColor.purple,
                       ),
                       label: Text(
-                        "Enter Elective ID",
+                        'Enter Elective ID',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class _addElectiveState extends State<addElective> {
                         color: AppColor.purple,
                       ),
                       label: Text(
-                        "Enter Elective Name",
+                        'Enter Elective Name',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,
@@ -111,7 +111,7 @@ class _addElectiveState extends State<addElective> {
                         color: AppColor.purple,
                       ),
                       label: Text(
-                        "Give Elective reference Link",
+                        'Give Elective reference Link',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,
@@ -133,7 +133,7 @@ class _addElectiveState extends State<addElective> {
                         color: AppColor.purple,
                       ),
                       label: Text(
-                        "Enter the Number of seats",
+                        'Enter the Number of seats',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,
@@ -160,14 +160,14 @@ class _addElectiveState extends State<addElective> {
                           String json = jsonEncode(course);
                           String resp = await addElectiveFn(json);
 
-                          if (resp.contains("ID is not available")) {
+                          if (resp.contains('ID is not available')) {
                             showScreenDialog(context, 'ID is not available!!');
                           } else {
-                            showScreenDialog(context, "Added Successfully");
+                            showScreenDialog(context, 'Added Successfully');
                           }
                         }
                       },
-                      child: Text("SUBMIT")),
+                      child: Text('SUBMIT')),
                   Text(txt),
                 ],
               ),

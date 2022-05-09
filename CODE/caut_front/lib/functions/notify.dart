@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 void showScreenDialog(BuildContext context, String msg) {
   showGeneralDialog(
     context: context,
-    barrierLabel: "Barrier",
+    barrierLabel: 'Barrier',
     barrierDismissible: true,
     barrierColor: Colors.black.withOpacity(0.5),
     transitionDuration: Duration(milliseconds: 700),
