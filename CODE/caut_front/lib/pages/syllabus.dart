@@ -21,7 +21,7 @@ class syllabus extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => dashboard()));
             }),
         title: Text(
-          "Elective Syllabus and Curriculum",
+          'Elective Syllabus and Curriculum',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class syllabus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Artificial Intelligence Electives",
+          'Artificial Intelligence Electives',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -110,7 +110,7 @@ class syllabus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Cyber Security Electives",
+          'Cyber Security Electives',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -162,7 +162,7 @@ class syllabus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Computer Vision Electives",
+          'Computer Vision Electives',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -215,7 +215,7 @@ class syllabus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Data Science Electives",
+          'Data Science Electives',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -267,7 +267,7 @@ class syllabus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Networks Electives",
+          'Networks Electives',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -319,7 +319,7 @@ class syllabus extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Cyber Physical Systems Electives",
+          'Cyber Physical Systems Electives',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -388,7 +388,7 @@ class nndl extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Neural Networks and Deep Learning",
+          'Neural Networks and Deep Learning',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -418,7 +418,7 @@ class nlp extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Natural Language Processing",
+          'Natural Language Processing',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -448,7 +448,7 @@ class webmining extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Web Mining",
+          'Web Mining',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -478,7 +478,7 @@ class ethicalhacking extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Ethical Hacking",
+          'Ethical Hacking',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -508,7 +508,7 @@ class bigdata extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Big Data",
+          'Big Data',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -538,7 +538,7 @@ class advcompnet extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Advanced Computer Networks",
+          'Advanced Computer Networks',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -568,7 +568,7 @@ class compvis extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Computer Vision",
+          'Computer Vision',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -598,7 +598,7 @@ class crypto extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Cryptography",
+          'Cryptography',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -628,7 +628,7 @@ class digimg extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Digital Image Processing",
+          'Digital Image Processing',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -659,7 +659,7 @@ class wirsens extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Wireless Sensor Networks",
+          'Wireless Sensor Networks',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -690,7 +690,7 @@ class cloud extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Cloud Computing",
+          'Cloud Computing',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -720,7 +720,7 @@ class iot extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => syllabus()));
             }),
         title: Text(
-          "Internet of Things",
+          'Internet of Things',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,

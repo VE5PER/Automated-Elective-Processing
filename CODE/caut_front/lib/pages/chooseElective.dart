@@ -28,7 +28,7 @@ class _chooseElectiveState extends State<chooseElective> {
           print(eleIds);
 
           if (eleIds.isEmpty) {
-            showScreenDialog(context, "Please choose something!!");
+            showScreenDialog(context, 'Please choose something!!');
           } else {
             int success = 1;
             for (var i in eleIds) {
@@ -40,13 +40,13 @@ class _chooseElectiveState extends State<chooseElective> {
               String status = await setElective(electiveJson);
               print(status);
               if (status.contains('Already Registered')) {
-                showScreenDialog(context, "Already Registered");
+                showScreenDialog(context, 'Already Registered');
                 success = 0;
                 break;
               }
             }
             if (success == 1) {
-              showScreenDialog(context, "Successfully registered");
+              showScreenDialog(context, 'Successfully registered');
 
               eleIds.clear();
               await takeElectives();
@@ -69,7 +69,7 @@ class _chooseElectiveState extends State<chooseElective> {
                     builder: (BuildContext context) => dashboard()));
           },
         ),
-        title: Text("Choose Electives"),
+        title: Text('Choose Electives'),
       ),
       body: ele.length > 0
           ? Container(
@@ -125,7 +125,7 @@ Future<List> getElectives() async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     var x = jsonDecode(response.body);
-    var electiveList = x["ElectiveList"];
+    var electiveList = x['ElectiveList'];
     List elect = [];
 
     for (var i in electiveList) {

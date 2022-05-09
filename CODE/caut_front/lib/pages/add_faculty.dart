@@ -31,7 +31,7 @@ class _addFacultyState extends State<addFaculty> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Add Faculty",
+          'Add Faculty',
           textAlign: TextAlign.center,
           style: TextStyle(
               color: AppColor.yellow,
@@ -71,7 +71,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty ID",
+                        'Enter Faculty ID',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty PASSWORD",
+                        'Enter Faculty PASSWORD',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty NAME",
+                        'Enter Faculty NAME',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -137,7 +137,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty DOJ",
+                        'Enter Faculty DOJ',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -159,7 +159,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty Position",
+                        'Enter Faculty Position',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -181,7 +181,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty USER_NAME",
+                        'Enter Faculty USER_NAME',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -203,7 +203,7 @@ class _addFacultyState extends State<addFaculty> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Faculty E_MAIL",
+                        'Enter Faculty E_MAIL',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -234,16 +234,16 @@ class _addFacultyState extends State<addFaculty> {
                           print(json);
                           String resp = await addTeacher(json);
 
-                          if (resp.contains("ID is not available")) {
+                          if (resp.contains('ID is not available')) {
                             showScreenDialog(context, 'ID is not available!!');
                           } else {
-                            showScreenDialog(context, "Added Successfully");
+                            showScreenDialog(context, 'Added Successfully');
                           }
                           //showScreenDialog(context, resp);
 
                         }
                       },
-                      child: Text("SUBMIT")),
+                      child: Text('SUBMIT')),
                   Text(txt),
                 ],
               ),

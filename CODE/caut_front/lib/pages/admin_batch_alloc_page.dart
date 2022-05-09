@@ -33,7 +33,7 @@ class _batchAllocState extends State<batchAlloc> {
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
-                  "Admin",
+                  'Admin',
                   style: TextStyle(
                     color: Color(0xFF077bd7),
                     fontSize: 26,

@@ -25,7 +25,7 @@ class _SideBarState extends State<SideBar> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Text(
-                "CAUT-Dashboard",
+                'CAUT-Dashboard',
                 style: TextStyle(
                   color: AppColor.yellow,
                   fontSize: 25,
@@ -34,55 +34,55 @@ class _SideBarState extends State<SideBar> {
               ),
             ),
             DrawerListTile(
-              title: "Change Password",
-              icon: "assets/reset_password.png",
+              title: 'Change Password',
+              icon: 'assets/reset_password.png',
               press: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => change_pwd()));
               },
             ),
             DrawerListTile(
-              title: "Elective Agreement policy",
-              icon: "assets/menu_onboarding.png",
+              title: 'Elective Agreement policy',
+              icon: 'assets/menu_onboarding.png',
               press: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
-              title: "Elective Preference Selection",
-              icon: "assets/menu_report.png",
+              title: 'Elective Preference Selection',
+              icon: 'assets/menu_report.png',
               press: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => chooseElective()));
               },
             ),
             DrawerListTile(
-              title: "Change Elective",
-              icon: "assets/menu_onboarding.png",
+              title: 'Change Elective',
+              icon: 'assets/menu_onboarding.png',
               press: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => WIP()));
               },
             ),
             DrawerListTile(
-              title: "Elective curriculum",
-              icon: "assets/menu_onboarding.png",
+              title: 'Elective curriculum',
+              icon: 'assets/menu_onboarding.png',
               press: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => syllabus()));
               },
             ),
             DrawerListTile(
-              title: "Logout",
-              icon: "assets/logout.png",
+              title: 'Logout',
+              icon: 'assets/logout.png',
               press: () {
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (context) => logout()));
               },
             ),
             Spacer(),
-            Image.asset("assets/sidebar_image.png")
+            Image.asset('assets/sidebar_image.png')
           ],
         ),
       ),

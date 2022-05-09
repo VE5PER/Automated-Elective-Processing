@@ -21,7 +21,7 @@ class change_pwd extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => dashboard()));
             }),
         title: Text(
-          "Change Password",
+          'Change Password',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _changeformState extends State<changeform> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter old password';
                   } else if (value.toString() != currentUser['PASSWORD']) {
-                    return "Wrong Old Password";
+                    return 'Wrong Old Password';
                   }
                   return null;
                 },

@@ -89,7 +89,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                         color: Colors.white,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          children: [Text("hy"), Text("hy")],
+                          children: [Text('hy'), Text('hy')],
                         ),
                       ),
                     )

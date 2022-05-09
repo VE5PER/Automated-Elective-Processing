@@ -30,7 +30,7 @@ class _tempDashState extends State<tempDash> {
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
-                  "Admin",
+                  'Admin',
                   style: TextStyle(
                     color: Color(0xFF077bd7),
                     fontSize: 26,
@@ -69,7 +69,7 @@ class _tempDashState extends State<tempDash> {
                                 builder: (context) => addUser())); // re
                       },
                       child: Text(
-                        "Add User",
+                        'Add User',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class _tempDashState extends State<tempDash> {
                                 builder: (context) => addElective()));
                       },
                       child: Text(
-                        "Add Elective",
+                        'Add Elective',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,
@@ -137,7 +137,7 @@ class _tempDashState extends State<tempDash> {
                             MaterialPageRoute(builder: (context) => logout()));
                       },
                       child: Text(
-                        "Logout",
+                        'Logout',
                         style: TextStyle(
                             color: AppColor.purple,
                             fontWeight: FontWeight.bold,

@@ -31,7 +31,7 @@ class _addUserState extends State<addUser> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Add User",
+          'Add User',
           textAlign: TextAlign.center,
           style: TextStyle(
               color: AppColor.yellow,
@@ -71,7 +71,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student ID",
+                        'Enter Student ID',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student PASSWORD",
+                        'Enter Student PASSWORD',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student NAME",
+                        'Enter Student NAME',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -137,7 +137,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student YEAR",
+                        'Enter Student YEAR',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -159,7 +159,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student SEMESTER",
+                        'Enter Student SEMESTER',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -181,7 +181,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student USER_NAME",
+                        'Enter Student USER_NAME',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -203,7 +203,7 @@ class _addUserState extends State<addUser> {
                         color: AppColor.yellow,
                       ),
                       label: Text(
-                        "Enter Student E_MAIL",
+                        'Enter Student E_MAIL',
                         style: TextStyle(
                             color: AppColor.yellow,
                             fontWeight: FontWeight.bold,
@@ -234,16 +234,16 @@ class _addUserState extends State<addUser> {
                           print(json);
                           String resp = await addStudent(json);
 
-                          if (resp.contains("ID is not available")) {
+                          if (resp.contains('ID is not available')) {
                             showScreenDialog(context, 'ID is not available!!');
                           } else {
-                            showScreenDialog(context, "Added Successfully");
+                            showScreenDialog(context, 'Added Successfully');
                           }
                           //showScreenDialog(context, resp);
 
                         }
                       },
-                      child: Text("SUBMIT")),
+                      child: Text('SUBMIT')),
                   Text(txt),
                 ],
               ),

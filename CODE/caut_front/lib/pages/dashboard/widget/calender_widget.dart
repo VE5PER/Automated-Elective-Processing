@@ -69,7 +69,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             onFormatChanged: (result) {},
             daysOfWeekStyle: DaysOfWeekStyle(
               dowTextFormatter: (date, locale) {
-                return DateFormat("EEE").format(date).toUpperCase();
+                return DateFormat('EEE').format(date).toUpperCase();
               },
               weekendStyle: TextStyle(fontWeight: FontWeight.bold),
               weekdayStyle: TextStyle(fontWeight: FontWeight.bold),
