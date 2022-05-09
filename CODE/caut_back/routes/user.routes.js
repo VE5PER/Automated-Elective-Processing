@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const router = express.Router()
 const Elective = require('../models/elective.model')
 const StuEle = require('../models/table3.model')
+const Batch = require('../models/table1.model')
 const Faculty = require('../models/faculty.model')
 
 router.post('/signup',(req,res)=>{
@@ -214,6 +215,60 @@ router.post('/addFaculty',(req,res)=>{
     })
     
 })
+router.post('/addBatches',(req,res)=>{
+    Batch.findOne({ELECTIVE_ID:req.body.ELECTIVE_ID,SEMESTER:req.body.SEMESTER},(err,batch)=>{
+        if(err){
+            console.log(err)
+            res.json(err)
+        }else{
+            if(batch==null){
+                const batch = Batch({
+                    YEAR:req.body.YEAR,
+                    SEMESTER:req.body.SEMESTER,
+                    ELECTIVE_ID:req.body.ELECTIVE_ID,
+                    BATCH_SIZE:req.body.BATCH_SIZE,
+                    NUMBER_OF_BATCHES:req.body.NUMBER_OF_BATCHES,
+                })
+                batch.save()
+                .then((err)=>{
+                    if(err){
+                        console.log(err)
+                        res.json(err)
+                    }else{
+                        console.log(taken)
+                        res.json(taken)
+                    }
+                    
+                })
+            }else{
+
+            res.json({
+                message:'Already Registered'
+            })   
+            }
+        }
+    })
+    
+})
+
+router.get('/getBatches', async (req,res) =>{
+    try{
+        batchesData = await Batch.find({},)
+        // newBatch = batchesData.map(batch => {
+        //     return {
+        //         SEMESTER: batch.SEMESTER,
+        //         ELECTIVE_ID: batch.ELECTIVE_ID
+        //     }
+        // })
+        // console.log(newBatch[0])
+        res.json({BatchList: batchesData})
+        console.log('hello')
+    } catch (error){
+        console.log(error)
+        res.json({status: error})
+    }
+})
+
 
 
 module.exports = router
