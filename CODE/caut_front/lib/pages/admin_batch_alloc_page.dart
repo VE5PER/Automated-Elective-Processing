@@ -56,7 +56,6 @@ class _batchAllocState extends State<batchAlloc> {
         drawer: MenuDrawer(),
         backgroundColor: AppColor.yellow,
         body: Center(
-<<<<<<< HEAD
           child: Form(
             key: addBatch,
             child: Column(
@@ -141,98 +140,6 @@ class _batchAllocState extends State<batchAlloc> {
                               }
                               return null;
                             },
-=======
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(height: 25),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      DropdownButton<String>(
-                        value: dropDownValue,
-                        items: <String>['Select Year', '1', '2', '3', '4']
-                            .map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-    setState(() {
-    dropDownValue = newValue!;
-    });
-    }
-                      )
-
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      DropdownButton<String>(
-                        value: dropDownValue2,
-                        items: <String>['Select Semester', '1', '2', '3', '4']
-                            .map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      DropdownButton<String>(
-                        value: dropDownValue3,
-                        items: <String>[
-                          'Select Elective',
-                          'bla',
-                          'abl',
-                          'lab',
-                          'bal'
-                        ].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
-                      )
-                    ],
-                  ),
-                  Column(children: [
-                    SizedBox(
-                        width: 150.0,
-                        child: TextField(
-                          style: TextStyle(
-                              fontSize: 20.0, height: 1.0, color: Colors.black),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Batch Size',
-                            hintText: 'Batch Size',
-                          ),
-                        ))
-                  ]),
-                  Column(children: [
-                    SizedBox(
-                        width: 200.0,
-                        child: TextField(
-                          style: TextStyle(
-                              fontSize: 20.0, height: 0.8, color: Colors.black),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Number of Batches',
-                            hintText: 'Total Batches',
->>>>>>> 3e1cfe44bf1c490158328a6e9fb31dad3678581b
                           ),
                         )
                       ]),
