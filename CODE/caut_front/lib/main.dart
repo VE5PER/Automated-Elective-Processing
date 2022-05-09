@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 List ele = [];
+List<String> elem =[];
 String src = 'http://localhost:8432';
 
 void main() => runApp(const login());
@@ -40,6 +41,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getElectives();
+    getElective();
     return Scaffold(
       backgroundColor: Colors.amber,
       body: Column(children: [
@@ -176,6 +178,7 @@ class _loginformState extends State<loginform> {
               ),
               onPressed: () async {
                 if (_username.text == 'admin' && _password.text == 'admin') {
+                  await getElective();
                   _batchAlloc();
                 } else if (login.currentState!.validate()) {
                   String loginJson = '''{
