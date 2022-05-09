@@ -1,20 +1,26 @@
 const mongoose = require('mongoose')
 
 const table1Schema = new mongoose.Schema({
-    ELECTIVE_ID: {
+    YEAR: {
         type: String,
-        ref: 'Elective',
         required: true,
-    },
-    DEPT_ID: {
-        type: String,
-        ref:'Department',
-        required: true
     },
     SEMESTER: {
         type: String,
         required: true
-    },    
+    },
+    ELECTIVE_ID: {
+        type: String,
+        required: true
+    },
+    BATCH_SIZE: {
+        type: String,
+        required: true
+    },
+    NUMBER_OF_BATCHES: {
+        type: String,
+        required: true
+    },      
 }, {
     timestamps: true
 })
