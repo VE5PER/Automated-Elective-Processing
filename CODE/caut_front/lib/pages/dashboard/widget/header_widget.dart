@@ -24,7 +24,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 Provider.of<MenuController>(context, listen: false).controlMenu,
           ),
           Text(
-            "Dashboard",
+            'Dashboard',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,

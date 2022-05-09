@@ -19,9 +19,9 @@ class NotificationCardWidget extends StatelessWidget {
                 TextSpan(
                   style: TextStyle(fontSize: 16, color: AppColor.black),
                   children: [
-                    TextSpan(text: "Welcome "),
+                    TextSpan(text: 'Welcome '),
                     TextSpan(
-                      text: currentUser["S_NAME"],
+                      text: currentUser['S_NAME'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -33,7 +33,7 @@ class NotificationCardWidget extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Choose your elective preference!",
+                'Choose your elective preference!',
                 style: TextStyle(
                   fontSize: 14,
                   color: AppColor.black,
@@ -56,7 +56,7 @@ class NotificationCardWidget extends StatelessWidget {
           if (MediaQuery.of(context).size.width >= 620) ...{
             Spacer(),
             Image.asset(
-              "assets/notification_image.png",
+              'assets/notification_image.png',
               height: 160,
             )
           }

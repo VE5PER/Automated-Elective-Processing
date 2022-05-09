@@ -25,7 +25,7 @@ class ProfileCardWidget extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(1000),
                 child: Image.asset(
-                  "assets/graduated.png",
+                  'assets/graduated.png',
                   height: 60,
                   width: 60,
                 ),
@@ -47,10 +47,10 @@ class ProfileCardWidget extends StatelessWidget {
             color: Colors.grey,
           ),
           eleChosen.length == 0
-              ? profileListTile("No Elective(s) Chosen", 'NA')
+              ? profileListTile('No Elective(s) Chosen', 'NA')
               : Container(),
 
-          for (var i in eleChosen) profileListTile(i.toString(), "REG"),
+          for (var i in eleChosen) profileListTile(i.toString(), 'REG'),
 
           // profileListTile("Elective 2", "B"),
         ],
@@ -90,7 +90,7 @@ Future<List> takeElectives() async {
   if (response.statusCode == 200 || response.statusCode == 201) {
     var x = jsonDecode(response.body);
     print(x);
-    var electiveList = x["ElectiveList"];
+    var electiveList = x['ElectiveList'];
     List elect = [];
 
     for (var i in electiveList) {

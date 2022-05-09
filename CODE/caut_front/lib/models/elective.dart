@@ -6,9 +6,9 @@ class Elective {
   Elective(
       this.ELECTIVE_ID, this.ELECTIVE_NAME, this.ELECTIVE_PDF_LINK, this.SEATS);
   Map toJson() => {
-        "ELECTIVE_ID": ELECTIVE_ID,
-        "ELECTIVE_NAME": ELECTIVE_NAME,
-        "ELECTIVE_PDF_LINK": ELECTIVE_PDF_LINK,
-        "SEATS": SEATS,
+        'ELECTIVE_ID': ELECTIVE_ID,
+        'ELECTIVE_NAME': ELECTIVE_NAME,
+        'ELECTIVE_PDF_LINK': ELECTIVE_PDF_LINK,
+        'SEAT': SEATS,
       };
 }
