@@ -8,6 +8,7 @@ import 'package:automated_elective_processing/pages/admin_top_bar_contents.dart'
 import 'package:automated_elective_processing/pages/responsive.dart';
 import 'package:automated_elective_processing/pages/admin_menu_drawer.dart';
 import 'package:automated_elective_processing/models/batches.dart';
+import 'package:automated_elective_processing/models/elective.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -15,6 +16,7 @@ import '../../../main.dart';
 
 import '../functions/notify.dart';
 import 'logout.dart';
+
 
 class batchAlloc extends StatefulWidget {
   const batchAlloc({Key? key}) : super(key: key);
@@ -33,6 +35,8 @@ class _batchAllocState extends State<batchAlloc> {
   @override
   Widget build(BuildContext context) {
     String txt = '';
+    elem.insert(0,dropDownValue3);
+    print(elem[0]);
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
@@ -90,7 +94,7 @@ class _batchAllocState extends State<batchAlloc> {
                       children: [
                         DropdownButton<String>(
                           value: dropDownValue2,
-                          items: <String>['Select Semester', '1', '2', '3', '4']
+                          items: <String>['Select Semester', '1', '2', '3', '4','5','6','7','8']
                               .map((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
@@ -116,13 +120,7 @@ class _batchAllocState extends State<batchAlloc> {
                         children: [
                           DropdownButton<String>(
                             value: dropDownValue3,
-                            items: <String>[
-                              'Select Elective',
-                              'bla',
-                              'abl',
-                              'lab',
-                              'bal'
-                            ].map((String value) {
+                            items: elem.map((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Text(value),
@@ -144,8 +142,8 @@ class _batchAllocState extends State<batchAlloc> {
                           width: 150.0,
                           child: TextFormField(
                             decoration: InputDecoration(
-                              hintText: "Enter Batch Size",
-                              label: Text("Batch Size"),
+                              hintText: 'Enter Batch Size',
+                              label: Text('Batch Size'),
                             ),
                             controller: batchSize,
                             validator: (String? value) {
@@ -165,8 +163,8 @@ class _batchAllocState extends State<batchAlloc> {
                             width: 150.0,
                             child: TextFormField(
                                 decoration: InputDecoration(
-                                  hintText: "Enter Number of Batches",
-                                  label: Text("No. Of Batches"),
+                                  hintText: 'Enter Number of Batches',
+                                  label: Text('No. Of Batches'),
                                 ),
                                 controller: noOfBatches,
                                 validator: (String? value) {
@@ -195,16 +193,16 @@ class _batchAllocState extends State<batchAlloc> {
                                   String json = jsonEncode(bat);
                                   print(json);
                                   String resp = await addbatches(json);
-                                  if (resp.contains("ID is not available")) {
+                                  if (resp.contains('ID is not available')) {
                                     showScreenDialog(context, 'ID is not available!!');
                                   } else {
-                                    showScreenDialog(context, "Added Successfully");
+                                    showScreenDialog(context, 'Added Successfully');
                                   }
                                 }
 
                               },
 
-                              child: Text("Submit")),
+                              child: Text('Submit')),
                         ))
                   ],
                 ),
@@ -230,5 +228,33 @@ Future<String> addbatches(String stu) async {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
     throw Exception('Failed to add Batches.');
+  }
+}
+Future<List> getElective() async {
+  final response = await http.get(Uri.parse(src + '/getElectives'));
+
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    var x = jsonDecode(response.body);
+    var electiveList = x['ElectiveList'];
+    List elect = [];
+
+    for (var i in electiveList) {
+      elect.add(
+        i['ELECTIVE_ID'],
+        // i['ELECTIVE_NAME'],
+        // i['ELECTIVE_PDF_LINK'],
+        // i['SEATS']
+      );
+
+      //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
+    }
+    elem = List<String>.from(elect);
+    return elect;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load elective list');
   }
 }
