@@ -180,6 +180,7 @@ class _loginformState extends State<loginform> {
                 if (_username.text == 'admin' && _password.text == 'admin') {
                   await getElective();
                   _batchAlloc();
+                  // _adminDash();
                 } else if (login.currentState!.validate()) {
                   String loginJson = '''{
                       "S_ID":"${_username.text}",
