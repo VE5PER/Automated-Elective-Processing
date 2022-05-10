@@ -8,7 +8,6 @@ import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:automated_elective_processing/pages/fac_page.dart';
-import 'package:automated_elective_processing/pages/add_faculty.dart';
 import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
