@@ -62,7 +62,7 @@ An application that allocates elective preference of students first come first s
 
 <!-- PROGRESS -->
 ## Progress
-   <img src="images/invision (1).png" alt="Logo" width="849" height="663">
+   <img src="images/invision.png" alt="Logo" width="849" height="663">
     
    <p align="right">(<a href="#top">back to top</a>)</p>
 
