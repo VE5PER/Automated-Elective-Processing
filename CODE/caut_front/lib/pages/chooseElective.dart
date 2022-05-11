@@ -32,10 +32,30 @@ class _chooseElectiveState extends State<chooseElective> {
             showScreenDialog(context, 'Please choose something!!');
           } else {
             int success = 1;
-            for (var i in eleIds) {
+            // for (var i in eleIds) {
+            //   String electiveJson = '''{
+            //           "S_ID":"${currentUser["S_ID"]}",
+            //           "ELECTIVE_ID":"${i.toString()}"
+            //           }
+            //       ''';
+            //   String status = await setElective(electiveJson);
+            //   print(status);
+            //   if (status.contains('Already Registered')) {
+            //     showScreenDialog(context, 'Already Registered');
+            //     success = 0;
+            //     break;
+            //   }
+            // }
+            for(var i=0;i<eleIds.length;i++)
+            {
               String electiveJson = '''{
                       "S_ID":"${currentUser["S_ID"]}",
-                      "ELECTIVE_ID":"${i.toString()}"
+                      "ELECTIVE_ID":"${eleIds[i].toString()}"
+                      }
+                  ''';
+              String seatsJson = '''{
+                      "ELECTIVE_ID":"${eleIds[i].toString()}",
+                      "newSeat":"${eleSeats[i]}"
                       }
                   ''';
               String status = await setElective(electiveJson);
@@ -45,21 +65,9 @@ class _chooseElectiveState extends State<chooseElective> {
                 success = 0;
                 break;
               }
-            }
-            for(var i=0;i<eleIds.length;i++)
-            {
-              String seatsJson = '''{
-                      "ELECTIVE_ID":"${eleIds[i].toString()}",
-                      "newSeat":"${eleSeats[i]}"
-                      }
-                  ''';
-
-            String status2 = await seatChange(seatsJson);
-            if (status2.contains('Already Registered')) {
-              showScreenDialog(context, 'Already Registered');
-              success = 0;
-              break;
-            }
+              else{
+                seatChange(seatsJson);
+              }
             }
             if (success == 1) {
               showScreenDialog(context, 'Successfully registered');
@@ -103,6 +111,10 @@ class _chooseElectiveState extends State<chooseElective> {
                         setState(() {
                           if (eleIds.contains(ele[index][0])) {
                             eleIds.remove(ele[index][0]);
+                            var temp = int.parse(ele[index][3]);
+                            temp =temp-1;
+                            String temp1=temp.toString();
+                            eleSeats.remove(temp1);
                           } else {
                             eleIds.add(ele[index][0]);
                             var temp = int.parse(ele[index][3]);
