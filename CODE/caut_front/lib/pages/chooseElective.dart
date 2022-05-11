@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 import '../main.dart';
 
 List eleIds = [];
+List eleSeats =[];
 
 class chooseElective extends StatefulWidget {
   const chooseElective({Key? key}) : super(key: key);
@@ -31,10 +32,30 @@ class _chooseElectiveState extends State<chooseElective> {
             showScreenDialog(context, 'Please choose something!!');
           } else {
             int success = 1;
-            for (var i in eleIds) {
+            // for (var i in eleIds) {
+            //   String electiveJson = '''{
+            //           "S_ID":"${currentUser["S_ID"]}",
+            //           "ELECTIVE_ID":"${i.toString()}"
+            //           }
+            //       ''';
+            //   String status = await setElective(electiveJson);
+            //   print(status);
+            //   if (status.contains('Already Registered')) {
+            //     showScreenDialog(context, 'Already Registered');
+            //     success = 0;
+            //     break;
+            //   }
+            // }
+            for(var i=0;i<eleIds.length;i++)
+            {
               String electiveJson = '''{
                       "S_ID":"${currentUser["S_ID"]}",
-                      "ELECTIVE_ID":"${i.toString()}"
+                      "ELECTIVE_ID":"${eleIds[i].toString()}"
+                      }
+                  ''';
+              String seatsJson = '''{
+                      "ELECTIVE_ID":"${eleIds[i].toString()}",
+                      "newSeat":"${eleSeats[i]}"
                       }
                   ''';
               String status = await setElective(electiveJson);
@@ -43,6 +64,9 @@ class _chooseElectiveState extends State<chooseElective> {
                 showScreenDialog(context, 'Already Registered');
                 success = 0;
                 break;
+              }
+              else{
+                seatChange(seatsJson);
               }
             }
             if (success == 1) {
@@ -88,8 +112,16 @@ class _chooseElectiveState extends State<chooseElective> {
                         setState(() {
                           if (eleIds.contains(ele[index][0])) {
                             eleIds.remove(ele[index][0]);
+                            var temp = int.parse(ele[index][3]);
+                            temp =temp-1;
+                            String temp1=temp.toString();
+                            eleSeats.remove(temp1);
                           } else {
                             eleIds.add(ele[index][0]);
+                            var temp = int.parse(ele[index][3]);
+                            temp =temp-1;
+                            String temp1=temp.toString();
+                            eleSeats.add(temp1);
                           }
                         });
                       },
@@ -164,5 +196,23 @@ Future<String> setElective(String stu) async {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
     throw Exception('Elective Add error');
+  }
+}
+Future<String> seatChange(String stu) async {
+  final response = await http.post(
+    Uri.parse(src + '/updateSeats'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+    },
+    body: stu,
+  );
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return response.body.toString();
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Change error');
   }
 }

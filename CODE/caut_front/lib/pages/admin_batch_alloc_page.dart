@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:automated_elective_processing/pages/add_elective.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
@@ -6,10 +8,15 @@ import 'package:automated_elective_processing/pages/admin_top_bar_contents.dart'
 import 'package:automated_elective_processing/pages/responsive.dart';
 import 'package:automated_elective_processing/pages/admin_menu_drawer.dart';
 import 'package:automated_elective_processing/models/batches.dart';
+import 'package:automated_elective_processing/models/elective.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import '../../../main.dart';
 
+import '../functions/notify.dart';
 import 'logout.dart';
+
 
 class batchAlloc extends StatefulWidget {
   const batchAlloc({Key? key}) : super(key: key);
@@ -24,13 +31,12 @@ class _batchAllocState extends State<batchAlloc> {
   String dropDownValue3 = 'Select Elective';
   final addBatch = GlobalKey<FormState>();
   final TextEditingController batchSize = TextEditingController();
+  final TextEditingController noOfBatches = TextEditingController();
   @override
   Widget build(BuildContext context) {
     String txt = '';
-    final TextEditingController BATCH_SIZE = TextEditingController();
-    final TextEditingController NUMBER_OF_BATCHES = TextEditingController();
-    final TextEditingController YEAR = TextEditingController();
-    final TextEditingController SEMESTER = TextEditingController();
+    elem.insert(0,dropDownValue3);
+    print(elem[0]);
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
@@ -76,7 +82,11 @@ class _batchAllocState extends State<batchAlloc> {
                               child: Text(value),
                             );
                           }).toList(),
-                          onChanged: (_) {},
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropDownValue = newValue!;
+                            });
+                          },
                         )
                       ],
                     ),
@@ -84,14 +94,18 @@ class _batchAllocState extends State<batchAlloc> {
                       children: [
                         DropdownButton<String>(
                           value: dropDownValue2,
-                          items: <String>['Select Semester', '1', '2', '3', '4']
+                          items: <String>['Select Semester', '1', '2', '3', '4','5','6','7','8']
                               .map((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Text(value),
                             );
                           }).toList(),
-                          onChanged: (_) {},
+    onChanged: (String? newValue) {
+      setState(() {
+        dropDownValue2 = newValue!;
+      });
+    },
                         )
                       ],
                     ),
@@ -106,19 +120,17 @@ class _batchAllocState extends State<batchAlloc> {
                         children: [
                           DropdownButton<String>(
                             value: dropDownValue3,
-                            items: <String>[
-                              'Select Elective',
-                              'bla',
-                              'abl',
-                              'lab',
-                              'bal'
-                            ].map((String value) {
+                            items: elem.map((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Text(value),
                               );
                             }).toList(),
-                            onChanged: (_) {},
+    onChanged: (String? newValue) {
+    setState(() {
+    dropDownValue3 = newValue!;
+    });
+    },
                           )
                         ],
                       ),
@@ -148,17 +160,19 @@ class _batchAllocState extends State<batchAlloc> {
                       flex: 3,
                       child: Column(children: [
                         SizedBox(
-                            width: 200.0,
-                            child: TextField(
-                              style: TextStyle(
-                                  fontSize: 20.0,
-                                  height: 0.8,
-                                  color: Colors.black),
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Number of Batches',
-                                hintText: 'Total Batches',
-                              ),
+                            width: 150.0,
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                  hintText: 'Enter Number of Batches',
+                                  label: Text('No. Of Batches'),
+                                ),
+                                controller: noOfBatches,
+                                validator: (String? value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter batch count';
+                                  }
+                                  return null;
+                                }
                             ))
                       ]),
                     ),
@@ -167,11 +181,25 @@ class _batchAllocState extends State<batchAlloc> {
                         child: Padding(
                           padding: const EdgeInsets.all(28.0),
                           child: ElevatedButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 print(batchSize.text);
                                 if (addBatch.currentState!.validate()) {
-                                  //submit
+                                  Batches bat = Batches(
+                                      dropDownValue,
+                                      dropDownValue2,
+                                      dropDownValue3,
+                                      batchSize.text,
+                                      noOfBatches.text);
+                                  String json = jsonEncode(bat);
+                                  print(json);
+                                  String resp = await addbatches(json);
+                                  if (resp.contains('ID is not available')) {
+                                    showScreenDialog(context, 'ID is not available!!');
+                                  } else {
+                                    showScreenDialog(context, 'Added Successfully');
+                                  }
                                 }
+
                               },
                               child: Text('Submit')),
                         ))
@@ -181,5 +209,51 @@ class _batchAllocState extends State<batchAlloc> {
             ),
           ),
         ));
+  }
+}
+Future<String> addbatches(String stu) async {
+  final response = await http.post(
+    Uri.parse(src + '/addBatches'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+    },
+    body: stu,
+  );
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return response.body.toString();
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed to add Batches.');
+  }
+}
+Future<List> getElective() async {
+  final response = await http.get(Uri.parse(src + '/getElectives'));
+
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    var x = jsonDecode(response.body);
+    var electiveList = x['ElectiveList'];
+    List elect = [];
+
+    for (var i in electiveList) {
+      elect.add(
+        i['ELECTIVE_ID'],
+        // i['ELECTIVE_NAME'],
+        // i['ELECTIVE_PDF_LINK'],
+        // i['SEATS']
+      );
+
+      //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
+    }
+    elem = List<String>.from(elect);
+    return elect;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load elective list');
   }
 }

@@ -1,0 +1,6 @@
+projectKey=caut_project
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=caut_project
+ceTaskId=AYCqFFSr_3LDONWqo-8Q
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYCqFFSr_3LDONWqo-8Q

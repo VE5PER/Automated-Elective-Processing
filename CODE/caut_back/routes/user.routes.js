@@ -269,6 +269,25 @@ router.get('/getBatches', async (req,res) =>{
     }
 })
 
+router.post('/updateSeats',async (req,res)=> {
+    const resultEle =await Elective.updateOne(
+         { ELECTIVE_ID:req.body.ELECTIVE_ID}, 
+         { $set : {SEATS : req.body.newSeat}},
+         {upsert: false}
+ 
+        
+ 
+     ).then((obj) => {
+         console.log('Updated');
+         res.json({  message:'Changed Successfully'})
+        
+   })
+  .catch((err) => {
+     console.log('Error: ' + err);
+ })
+ 
+ })
+
 
 
 module.exports = router

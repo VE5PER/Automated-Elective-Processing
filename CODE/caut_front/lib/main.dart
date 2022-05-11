@@ -8,12 +8,12 @@ import 'package:automated_elective_processing/pages/chooseElective.dart';
 import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:automated_elective_processing/pages/fac_page.dart';
-import 'package:automated_elective_processing/pages/add_faculty.dart';
 import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 List ele = [];
+// List<String> elem =[];
 String src = 'http://localhost:8432';
 
 void main() => runApp(const login());
@@ -40,6 +40,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getElectives();
+    getElective();
     return Scaffold(
       backgroundColor: Colors.amber,
       body: Column(children: [
@@ -176,7 +177,9 @@ class _loginformState extends State<loginform> {
               ),
               onPressed: () async {
                 if (_username.text == 'admin' && _password.text == 'admin') {
-                  _batchAlloc();
+                  // await getElective();
+                  // _batchAlloc();
+                  _adminDash();
                 } else if (login.currentState!.validate()) {
                   String loginJson = '''{
                       "S_ID":"${_username.text}",

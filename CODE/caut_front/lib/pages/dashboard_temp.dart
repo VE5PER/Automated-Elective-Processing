@@ -27,6 +27,7 @@ class _tempDashState extends State<tempDash> {
             ? AppBar(
                 iconTheme: IconThemeData(color: Color(0xFF077bd7)),
                 backgroundColor: Colors.white,
+                toolbarHeight: 200,
                 elevation: 0,
                 centerTitle: true,
                 title: Text(

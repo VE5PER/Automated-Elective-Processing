@@ -1,9 +1,11 @@
-# Automated Elective processing
-<!-- Copy-paste in your Readme.md file -->
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<div align="center">
+
+# Automated Elective Processing
+![node-current](https://img.shields.io/node/v/passport)
+![GitHub last commit](https://img.shields.io/github/last-commit/VE5PER/Automated-Elective-Processing)
+![Lines of code](https://img.shields.io/tokei/lines/github/VE5PER/Automated-Elective-Processing)
+![GitHub contributors](https://img.shields.io/github/contributors/VE5PER/Automated-Elective-Processing)
+</div>
 
 
 
@@ -17,19 +19,8 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
     <li><a href="#Team-Members">Team Members</a></li>
     <li><a href="#Progress">Progress</a></li>
-    <li><a href="#contributers">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -43,9 +34,16 @@ An application that allocates elective preference of students first come first s
 ## Built With
 <ol>
   <li>
-<a href="https://www.djangoproject.com/">
-    <img src="images/django-logo-positive.svg" alt="Logo" width="80" height="80">
-  </a>
+    <img src="images/nodejs-logo.png" alt="Logo" width="140" height="80">
+  </li>
+    <li>
+    <img src="images/1_9hGvYE5jegHm1r_97gH-jQ.png" alt="Logo" width="140" height="80">
+  </li>
+    <li>
+    <img src="images/70760bf1e88b184bb1bc.png" alt="Logo" width="140" height="80">
+  </li>
+    <li>
+    <img src="images/MongoDB_Logo_FullColorBlack_RGB.png" alt="Logo" width="140" height="80">
   </li>
   </ol>
 
@@ -64,9 +62,8 @@ An application that allocates elective preference of students first come first s
 
 <!-- PROGRESS -->
 ## Progress
-* [Invision](https://www.invisionapp.com/)<br>
-    <img src="images/invision.png" alt="Logo" width="849" height="663">
+   <img src="images/invision.png" alt="Logo" width="849" height="663">
     
-    <p align="right">(<a href="#top">back to top</a>)</p>
+   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
