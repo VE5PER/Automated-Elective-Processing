@@ -42,7 +42,7 @@ class _batchAllocState extends State<batchAlloc> {
         // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
         appBar:  AppBar(
                 iconTheme: IconThemeData(color: Color(0xFF077bd7)),
-               
+
                 toolbarHeight: 120,
                 flexibleSpace: Container(child: AdminTopBarContents(),),
               )
