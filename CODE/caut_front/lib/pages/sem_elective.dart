@@ -22,7 +22,7 @@ class _semElectiveState extends State<semElective> {
   String dropDownValue = 'Select Year';
   String dropDownValue2 = 'Select Semester';
   String dropDownValue3 = 'Select No. of Electives';
-  final addBatch = GlobalKey<FormState>();
+  final addNumber = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +38,7 @@ class _semElectiveState extends State<semElective> {
         backgroundColor: AppColor.yellow,
         body: Center(
           child: Form(
-            key: addBatch,
+            key: addNumber,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -113,7 +113,7 @@ class _semElectiveState extends State<semElective> {
                               padding: const EdgeInsets.all(28.0),
                               child: ElevatedButton(
                                   onPressed: () async {
-                                    if (addBatch.currentState!.validate()) {
+                                    if (addNumber.currentState!.validate()) {
                                       SemElective bat = SemElective(
                                           dropDownValue,
                                           dropDownValue2,

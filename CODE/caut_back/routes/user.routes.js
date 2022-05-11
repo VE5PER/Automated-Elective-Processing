@@ -7,7 +7,7 @@ const Elective = require('../models/elective.model')
 const StuEle = require('../models/table3.model')
 const Batch = require('../models/table1.model')
 const Faculty = require('../models/faculty.model')
-const Table2 = require('../models/table3.model')
+const Table2 = require('../models/table2.model')
 
 router.post('/signup',(req,res)=>{
     User.findOne({S_ID:req.body.S_ID},(err,user)=>{
@@ -299,7 +299,7 @@ router.post('/updateSeats',async (req,res)=> {
                 const t2 = Table2({
                     YEAR:req.body.YEAR,
                     SEMESTER:req.body.SEMESTER,
-                    NUMBER_OF_ELECTIVES:req.body.NUMBER_OF_ELECTIVES,
+                    NO_OF_ELECTIVES:req.body.NO_OF_ELECTIVES,
                 })
                 t2.save()
                 .then((err)=>{

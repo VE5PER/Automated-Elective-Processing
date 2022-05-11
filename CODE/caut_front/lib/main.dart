@@ -45,7 +45,7 @@ class SignUpScreen extends StatelessWidget {
     getElectives();
     getElective();
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Color(0xFFEEE7E5),
       body: Column(children: [
         Center(
           child: SizedBox(

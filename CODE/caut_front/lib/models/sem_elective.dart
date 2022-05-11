@@ -6,6 +6,6 @@ class SemElective {
   Map toJson() => {
     'YEAR': YEAR,
     'SEMESTER': SEMESTER,
-    'NUMBER_OF_BATCHES': NO_OF_ELECTIVES,
+    'NO_OF_ELECTIVES': NO_OF_ELECTIVES,
   };
 }
