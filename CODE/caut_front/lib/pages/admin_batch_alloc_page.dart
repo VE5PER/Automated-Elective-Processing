@@ -130,8 +130,8 @@ class _batchAllocState extends State<batchAlloc> {
                           width: 150.0,
                           child: TextFormField(
                             decoration: InputDecoration(
-                              hintText: "Enter Batch Size",
-                              label: Text("Batch Size"),
+                              hintText: 'Enter Batch Size',
+                              label: Text('Batch Size'),
                             ),
                             controller: batchSize,
                             validator: (String? value) {
@@ -173,7 +173,7 @@ class _batchAllocState extends State<batchAlloc> {
                                   //submit
                                 }
                               },
-                              child: Text("Submit")),
+                              child: Text('Submit')),
                         ))
                   ],
                 ),
