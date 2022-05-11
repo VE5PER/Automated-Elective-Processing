@@ -158,9 +158,10 @@ Future<List> getElectives() async {
   if (response.statusCode == 200 || response.statusCode == 201) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
+    eleDisplay=[];
     var x = jsonDecode(response.body);
     var electiveList = x['ElectiveList'];
-
+    electAll=[];
     for (var i in electiveList) {
       electAll.add([
         i['ELECTIVE_ID'],
@@ -171,7 +172,13 @@ Future<List> getElectives() async {
 
       //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
     }
-    eleDisplay = electAll;
+    for(int i = 0;i<electAll.length;i++){
+      if((electAll[i].toSet().intersection(eleChosen.toSet()).length) == 0){
+        eleDisplay.add(electAll[i]);
+      }
+    }
+
+    //eleDisplay = electAll;
     return electAll;
   } else {
     // If the server did not return a 200 OK response,

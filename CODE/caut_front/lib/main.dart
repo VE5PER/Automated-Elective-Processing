@@ -15,7 +15,7 @@ import 'package:http/http.dart' as http;
 
 import 'globals.dart';
 
-List eleDisplay = [];
+
 // List<String> elem =[];
 String src = 'http://localhost:8432';
 

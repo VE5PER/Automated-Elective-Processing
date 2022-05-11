@@ -92,12 +92,12 @@ Future<List> takeElectives() async {
     var x = jsonDecode(response.body);
     print(x);
     var electiveList = x['ElectiveList'];
-    electAll = [];
+
 
     for (var i in electiveList) {
       eleChosen.add(i['ELECTIVE_ID']);
     }
-    print(eleChosen);
+
 
     return electAll;
   } else {
