@@ -4,9 +4,10 @@ import 'package:automated_elective_processing/models/student.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 
+import '../../../globals.dart';
 import '../../../main.dart';
 
-List eleChosen = [];
+
 
 class ProfileCardWidget extends StatelessWidget {
   @override
@@ -91,14 +92,14 @@ Future<List> takeElectives() async {
     var x = jsonDecode(response.body);
     print(x);
     var electiveList = x['ElectiveList'];
-    List elect = [];
+
 
     for (var i in electiveList) {
-      elect.add(i['ELECTIVE_ID']);
+      eleChosen.add(i['ELECTIVE_ID']);
     }
-    print(eleChosen);
-    eleChosen = elect;
-    return elect;
+
+
+    return electAll;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.

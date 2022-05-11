@@ -19,4 +19,4 @@ class Student {
       };
 }
 
-var currentUser;
+

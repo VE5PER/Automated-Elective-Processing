@@ -6,7 +6,9 @@ import 'package:automated_elective_processing/pages/change_pwd.dart';
 import 'package:automated_elective_processing/pages/syllabus.dart';
 import 'package:automated_elective_processing/pages/logout.dart';
 
-import '../WIP.dart';
+import '../../../globals.dart';
+import '../../../main.dart';
+import '../../WIP.dart';
 
 class SideBar extends StatefulWidget {
   @override
@@ -83,6 +85,22 @@ class _SideBarState extends State<SideBar> {
               },
             ),
             Spacer(),
+            ElevatedButton(onPressed: (){
+             // print(electAll);
+
+              print(eleDisplay );
+/*
+              for(int i = 0;i<electAll.length;i++){
+                if(electAll[i].toSet().intersection(eleChosen.toSet()).length == 0)
+                print(electAll[i]);
+                }
+
+ */
+
+
+
+
+            }, child: Text('Test Button')),
             Image.asset('assets/sidebar_image.png')
           ],
         ),

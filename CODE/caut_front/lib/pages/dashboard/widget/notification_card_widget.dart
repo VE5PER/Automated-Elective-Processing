@@ -2,6 +2,8 @@ import 'package:automated_elective_processing/models/student.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 
+import '../../../globals.dart';
+
 class NotificationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class NotificationCardWidget extends StatelessWidget {
                       text: currentUser['S_NAME'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 18
                       ),
                     ),
                   ],

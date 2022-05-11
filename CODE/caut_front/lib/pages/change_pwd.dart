@@ -6,6 +6,7 @@ import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../../../main.dart';
+import '../globals.dart';
 
 class change_pwd extends StatelessWidget {
   const change_pwd();

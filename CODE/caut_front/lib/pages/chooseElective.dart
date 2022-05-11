@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../globals.dart';
 import '../main.dart';
 
 List eleIds = [];
@@ -95,7 +96,7 @@ class _chooseElectiveState extends State<chooseElective> {
         ),
         title: Text('Choose Electives'),
       ),
-      body: ele.length > 0
+      body: eleDisplay.length > 0
           ? Container(
               padding: EdgeInsets.all(20),
               child: GridView.builder(
@@ -105,20 +106,20 @@ class _chooseElectiveState extends State<chooseElective> {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
                   ),
-                  itemCount: ele.length,
+                  itemCount: eleDisplay.length,
                   itemBuilder: (BuildContext ctx, index) {
                     return InkWell(
                       onTap: () {
                         setState(() {
-                          if (eleIds.contains(ele[index][0])) {
-                            eleIds.remove(ele[index][0]);
-                            var temp = int.parse(ele[index][3]);
+                          if (eleIds.contains(eleDisplay[index][0])) {
+                            eleIds.remove(eleDisplay[index][0]);
+                            var temp = int.parse(eleDisplay[index][3]);
                             temp =temp-1;
                             String temp1=temp.toString();
                             eleSeats.remove(temp1);
                           } else {
-                            eleIds.add(ele[index][0]);
-                            var temp = int.parse(ele[index][3]);
+                            eleIds.add(eleDisplay[index][0]);
+                            var temp = int.parse(eleDisplay[index][3]);
                             temp =temp-1;
                             String temp1=temp.toString();
                             eleSeats.add(temp1);
@@ -131,14 +132,14 @@ class _chooseElectiveState extends State<chooseElective> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text('Elective ID: ${ele[index][0]}'),
-                            Text('Elective Name: ${ele[index][1]}'),
-                            Text('Ref link: ${ele[index][2]}'),
-                            Text('No of Seats: ${ele[index][3]}'),
+                            Text('Elective ID: ${eleDisplay[index][0]}'),
+                            Text('Elective Name: ${eleDisplay[index][1]}'),
+                            Text('Ref link: ${eleDisplay[index][2]}'),
+                            Text('No of Seats: ${eleDisplay[index][3]}'),
                           ],
                         ),
                         decoration: BoxDecoration(
-                            color: eleIds.contains(ele[index][0])
+                            color: eleIds.contains(eleDisplay[index][0])
                                 ? Colors.red
                                 : Colors.amber,
                             borderRadius: BorderRadius.circular(15)),
@@ -157,12 +158,12 @@ Future<List> getElectives() async {
   if (response.statusCode == 200 || response.statusCode == 201) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
+    eleDisplay=[];
     var x = jsonDecode(response.body);
     var electiveList = x['ElectiveList'];
-    List elect = [];
-
+    electAll=[];
     for (var i in electiveList) {
-      elect.add([
+      electAll.add([
         i['ELECTIVE_ID'],
         i['ELECTIVE_NAME'],
         i['ELECTIVE_PDF_LINK'],
@@ -171,8 +172,14 @@ Future<List> getElectives() async {
 
       //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
     }
-    ele = elect;
-    return elect;
+    for(int i = 0;i<electAll.length;i++){
+      if((electAll[i].toSet().intersection(eleChosen.toSet()).length) == 0){
+        eleDisplay.add(electAll[i]);
+      }
+    }
+
+    //eleDisplay = electAll;
+    return electAll;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
