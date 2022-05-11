@@ -28,6 +28,10 @@ const studentSchema = new mongoose.Schema({
     PASSWORD: {
         type: String,
         required: true
+    },
+    ELECTIVE_REM:{
+        type: String,
+        required: true
     }
 }, {
     timestamps: true

@@ -1,17 +1,15 @@
 const mongoose = require('mongoose')
 
 const table2Schema = new mongoose.Schema({
-    S_ID: {
+    YEAR: {
         type: String,
-        ref: 'Student',
         required: true,
     },
-    COURSE_ID: {
-        ref: 'Course',
+    SEMESTER: {
         type: String,
         required: true
     },
-    ENROLLMENT: {
+    NO_OF_ELECTIVES: {
         type: String,
         required: true
     },    
