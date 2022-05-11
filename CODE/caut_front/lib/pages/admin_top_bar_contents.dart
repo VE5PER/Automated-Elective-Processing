@@ -45,11 +45,12 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
         padding: EdgeInsets.symmetric(vertical: 25),
         child: Expanded(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
-                width: screenSize.width / 4,
+                width: 40,
               ),
+
               Text(
                 'ADMIN',
                 style: TextStyle(
@@ -129,7 +130,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                               child: Text(
                                 'Add Details',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                   color:Color(0xFF077bd7),
                                 ),
