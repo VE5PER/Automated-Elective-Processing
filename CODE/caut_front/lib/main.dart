@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 List ele = [];
-List<String> elem =[];
+// List<String> elem =[];
 String src = 'http://localhost:8432';
 
 void main() => runApp(const login());
@@ -177,9 +177,9 @@ class _loginformState extends State<loginform> {
               ),
               onPressed: () async {
                 if (_username.text == 'admin' && _password.text == 'admin') {
-                  await getElective();
-                  _batchAlloc();
-                  // _adminDash();
+                  // await getElective();
+                  // _batchAlloc();
+                  _adminDash();
                 } else if (login.currentState!.validate()) {
                   String loginJson = '''{
                       "S_ID":"${_username.text}",

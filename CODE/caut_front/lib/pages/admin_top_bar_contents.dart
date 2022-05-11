@@ -1,5 +1,12 @@
+import 'package:automated_elective_processing/pages/add_elective.dart';
+import 'package:automated_elective_processing/pages/add_faculty.dart';
+import 'package:automated_elective_processing/pages/add_user.dart';
+import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
+import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:flutter/material.dart';
-
+import 'package:dropdown_button2/dropdown_button2.dart';
+// List ele = [];
+List<String> elem =[];
 class AdminTopBarContents extends StatefulWidget {
   AdminTopBarContents();
 
@@ -20,6 +27,13 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
   ];
 
   final List _isTap = [false, false, false, false, false, false, false, false];
+  String? selectedValue;
+  List<String> items = [
+    'Add Student',
+    'Add Elective',
+    'Add Faculty',
+  ];
+  String d1 = 'Home';
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +41,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
     return Container(
       color: Colors.white.withOpacity(0.5),
       child: Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(15),
         child: Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -54,10 +68,11 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                 },
                 onTap: () {
                   _isTap[0] = !_isTap[0];
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => tempDash()));
                   setState(() {});
                 },
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
                       'Home',
@@ -80,19 +95,6 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                         color: Color(0xFF051441),
                       ),
                     ),
-                    Visibility(
-                      maintainAnimation: true,
-                      maintainState: true,
-                      maintainSize: true,
-                      visible: _isTap[0],
-                      child: Container(
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [Text('hy'), Text('hy')],
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -103,18 +105,92 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                     value ? _isHovering[1] = true : _isHovering[1] = false;
                   });
                 },
-                onTap: () {},
+                onTap: () {
+
+                },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'Add details',
-                      style: TextStyle(
-                          color: _isHovering[1]
-                              ? Color(0xFF077bd7)
-                              : Color(0xFF077bd7),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
+                    DropdownButtonHideUnderline(
+                      child: DropdownButton2(
+                        isExpanded: true,
+                        hint: Row(
+                          children: const [
+                            Icon(
+                              Icons.list,
+                              size: 16,
+                              color:Color(0xFF077bd7),
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Expanded(
+                              child: Text(
+                                'Add Details',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color:Color(0xFF077bd7),
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                        items: items
+                            .map((item) => DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(
+                            item,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color:Color(0xFF077bd7),
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ))
+                            .toList(),
+                        value: selectedValue,
+                        onChanged: (value) {
+                          if (value == items[0])
+                            {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => addUser()));
+                            }
+                          if (value == items[1])
+                          {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => addElective()));
+                          }
+                          if (value == items[2])
+                          {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => addFaculty()));
+                          }
+                        },
+                        icon: const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                        ),
+                        iconSize: 14,
+                        iconEnabledColor: Color(0xFF077bd7),
+                        iconDisabledColor: Colors.grey,
+                        buttonHeight: 40,
+                        buttonWidth: 140,
+                        buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                        buttonElevation: 2,
+                        itemHeight: 40,
+                        itemPadding: const EdgeInsets.only(left: 14, right: 14),
+                        dropdownMaxHeight: 200,
+                        dropdownWidth: 200,
+                        dropdownPadding: null,
+                        dropdownDecoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(14),
+                            // color: Colors.white.withOpacity(0.5)
+                        ),
+                        dropdownElevation: 8,
+                        scrollbarRadius: const Radius.circular(40),
+                        scrollbarThickness: 6,
+                        scrollbarAlwaysShow: true,
+                        offset: const Offset(-20, 0),
+                      ),
                     ),
                     SizedBox(height: 5),
                     Visibility(
@@ -127,7 +203,8 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                         width: 20,
                         color: Color(0xFF051441),
                       ),
-                    )
+                    ),
+
                   ],
                 ),
               ),
@@ -138,7 +215,12 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                     value ? _isHovering[2] = true : _isHovering[2] = false;
                   });
                 },
-                onTap: () {},
+                  onTap: () async{
+                    await getElective();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                        batchAlloc()));
+                    setState(() {});
+                  },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
