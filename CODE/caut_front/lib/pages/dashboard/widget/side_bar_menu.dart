@@ -6,7 +6,7 @@ import 'package:automated_elective_processing/pages/change_pwd.dart';
 import 'package:automated_elective_processing/pages/syllabus.dart';
 import 'package:automated_elective_processing/pages/logout.dart';
 
-import '../WIP.dart';
+import '../../WIP.dart';
 
 class SideBar extends StatefulWidget {
   @override

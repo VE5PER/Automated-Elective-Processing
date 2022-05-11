@@ -4,7 +4,7 @@ import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:provider/provider.dart';
 
 import 'dashboard/dashboard.dart';
-import 'widget/side_bar_menu.dart';
+import 'dashboard/widget/side_bar_menu.dart';
 
 class HomePage extends StatefulWidget {
   @override

@@ -26,6 +26,7 @@ class NotificationCardWidget extends StatelessWidget {
                       text: currentUser['S_NAME'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 18
                       ),
                     ),
                   ],
