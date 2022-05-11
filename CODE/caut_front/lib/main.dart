@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+
 import 'package:automated_elective_processing/dashboard.dart';
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/student.dart';
@@ -11,6 +12,8 @@ import 'package:automated_elective_processing/pages/fac_page.dart';
 import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+import 'globals.dart';
 
 List ele = [];
 // List<String> elem =[];

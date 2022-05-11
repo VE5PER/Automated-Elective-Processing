@@ -4,6 +4,7 @@ import 'package:automated_elective_processing/models/student.dart';
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 
+import '../../../globals.dart';
 import '../../../main.dart';
 
 List eleChosen = [];
@@ -91,7 +92,7 @@ Future<List> takeElectives() async {
     var x = jsonDecode(response.body);
     print(x);
     var electiveList = x['ElectiveList'];
-    List elect = [];
+    elect = [];
 
     for (var i in electiveList) {
       elect.add(i['ELECTIVE_ID']);
