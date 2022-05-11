@@ -103,7 +103,8 @@ class _chooseElectiveState extends State<chooseElective> {
                       maxCrossAxisExtent: 200,
                       childAspectRatio: 3 / 2,
                       crossAxisSpacing: 20,
-                      mainAxisSpacing: 20),
+                      mainAxisSpacing: 20,
+                  ),
                   itemCount: ele.length,
                   itemBuilder: (BuildContext ctx, index) {
                     return InkWell(

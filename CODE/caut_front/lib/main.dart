@@ -122,6 +122,7 @@ class _loginformState extends State<loginform> {
   @override
   Widget build(BuildContext context) {
     return Form(
+
       key: login,
       child: Container(
         padding: EdgeInsets.only(bottom: 15),
@@ -149,6 +150,40 @@ class _loginformState extends State<loginform> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                onFieldSubmitted: (value) async {
+
+                  if (_username.text == 'admin' && _password.text == 'admin') {
+                    // await getElective();
+                    // _batchAlloc();
+                    _adminDash();
+                  } else if (login.currentState!.validate()) {
+                    String loginJson = '''{
+                      "S_ID":"${_username.text}",
+                      "PASSWORD":"${_password.text}"
+                      }
+                  ''';
+                    String status = await validateUser(loginJson);
+                    print(status);
+
+                    if (status.contains('ID or Password Incorrect')) {
+                      showScreenDialog(context, 'ID or Password Incorrect');
+                    } else {
+                      //instantiate user here
+                      final parsedStudent = jsonDecode(status);
+
+                      currentUser = parsedStudent;
+                      //Student(parsedStudent['S_ID'], parsedStudent['PASSWORD'], parsedStudent['S_NAME'], parsedStudent['YEAR'], parsedStudent['SEMESTER'], parsedStudent['USER_NAME'], parsedStudent['E_MAIL']);
+                      print(currentUser);
+                      _username.clear();
+                      _password.clear();
+                      await takeElectives();
+                      await getElectives();
+
+                      _showWelcomeScreen();
+                    }
+                  }
+
+                },
                 controller: _password,
                 obscureText: true,
                 decoration: const InputDecoration(hintText: 'Password'),
@@ -175,6 +210,7 @@ class _loginformState extends State<loginform> {
                       : Colors.blueAccent;
                 }),
               ),
+
               onPressed: () async {
                 if (_username.text == 'admin' && _password.text == 'admin') {
                   // await getElective();

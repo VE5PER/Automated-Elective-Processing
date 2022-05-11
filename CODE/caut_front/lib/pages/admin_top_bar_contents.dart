@@ -1,3 +1,4 @@
+import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:automated_elective_processing/pages/add_elective.dart';
 import 'package:automated_elective_processing/pages/add_faculty.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
@@ -39,18 +40,19 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Container(
-      color: Colors.white.withOpacity(0.5),
+      color: AppColor.bgSideMenu,
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.symmetric(vertical: 25),
         child: Expanded(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
-                width: screenSize.width / 4,
+                width: 40,
               ),
+
               Text(
-                'Admin',
+                'ADMIN',
                 style: TextStyle(
                   color: Color(0xFF077bd7),
                   fontSize: 26,
@@ -72,7 +74,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                   setState(() {});
                 },
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       'Home',
@@ -83,7 +85,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 2),
                     Visibility(
                       maintainAnimation: true,
                       maintainState: true,
@@ -128,7 +130,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                               child: Text(
                                 'Add Details',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                   color:Color(0xFF077bd7),
                                 ),

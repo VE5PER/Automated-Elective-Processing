@@ -23,26 +23,17 @@ class _tempDashState extends State<tempDash> {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
-        appBar: ResponsiveWidget.isSmallScreen(context)
-            ? AppBar(
+        appBar: AppBar(
                 iconTheme: IconThemeData(color: Color(0xFF077bd7)),
-                backgroundColor: Colors.white,
-                toolbarHeight: 200,
+
+                toolbarHeight: 120,
                 elevation: 0,
-                centerTitle: true,
-                title: Text(
-                  'Admin',
-                  style: TextStyle(
-                    color: Color(0xFF077bd7),
-                    fontSize: 26,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              )
-            : PreferredSize(
-                preferredSize: Size(screenSize.width, 70),
-                child: AdminTopBarContents(),
+
+
+          flexibleSpace: Container(child: AdminTopBarContents()),
+
               ),
+
         drawer: MenuDrawer(),
         backgroundColor: AppColor.yellow,
         body: Center(
