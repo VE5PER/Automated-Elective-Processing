@@ -1,3 +1,5 @@
 var currentUser;
 
-List elect=[];
+List electAll=[];
+
+List eleChosen = [];
