@@ -9,6 +9,7 @@ class logout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColor.bgSideMenu,
       body: Column(children: [
