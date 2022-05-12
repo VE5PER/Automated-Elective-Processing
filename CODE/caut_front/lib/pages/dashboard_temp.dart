@@ -35,7 +35,8 @@ class _tempDashState extends State<tempDash> {
               ),
 
         drawer: MenuDrawer(),
-        backgroundColor: AppColor.yellow,
+        // backgroundColor: AppColor.yellow,
+        backgroundColor: Color(0xFFE0E0E0),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

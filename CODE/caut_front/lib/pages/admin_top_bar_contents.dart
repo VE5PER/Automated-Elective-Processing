@@ -4,6 +4,7 @@ import 'package:automated_elective_processing/pages/add_faculty.dart';
 import 'package:automated_elective_processing/pages/add_user.dart';
 import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
+import 'package:automated_elective_processing/pages/sem_elective.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 // List ele = [];
@@ -33,6 +34,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
     'Add Student',
     'Add Elective',
     'Add Faculty',
+    'Add No. of Elective'
   ];
   String d1 = 'Home';
 
@@ -166,6 +168,10 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                           if (value == items[2])
                           {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) => addFaculty()));
+                          }
+                          if (value == items[3])
+                          {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => semElective()));
                           }
                         },
                         icon: const Icon(
