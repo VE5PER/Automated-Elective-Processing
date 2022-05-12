@@ -9,6 +9,6 @@ class Elective {
         'ELECTIVE_ID': ELECTIVE_ID,
         'ELECTIVE_NAME': ELECTIVE_NAME,
         'ELECTIVE_PDF_LINK': ELECTIVE_PDF_LINK,
-        'SEAT': SEATS,
+        'SEATS': SEATS,
       };
 }
