@@ -10,6 +10,7 @@ import 'package:automated_elective_processing/pages/dashboard/widget/profile_car
 import 'package:automated_elective_processing/pages/dashboard_temp.dart';
 import 'package:automated_elective_processing/pages/fac_page.dart';
 import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
+import 'package:automated_elective_processing/pages/sem_elective.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -44,6 +45,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     getElectives();
     getElective();
+    getSeats();
     return Scaffold(
       backgroundColor: Color(0xFFEEE7E5),
       body: Column(children: [
@@ -156,7 +158,7 @@ class _loginformState extends State<loginform> {
                 onFieldSubmitted: (value) async {
 
                   if (_username.text == 'admin' && _password.text == 'admin') {
-                    // await getElective();
+                    // await getSeats();
                     // _batchAlloc();
                     _adminDash();
                   } else if (login.currentState!.validate()) {

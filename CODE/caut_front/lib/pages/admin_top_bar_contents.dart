@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 // List ele = [];
 List<String> elem =[];
+List seat =[];
 class AdminTopBarContents extends StatefulWidget {
   AdminTopBarContents();
 
@@ -159,6 +160,7 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                         onChanged: (value) {
                           if (value == items[0])
                             {
+                              getSeats();
                               Navigator.of(context).push(MaterialPageRoute(builder: (context) => addUser()));
                             }
                           if (value == items[1])
