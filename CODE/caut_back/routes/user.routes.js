@@ -23,7 +23,8 @@ router.post('/signup',(req,res)=>{
                     YEAR: req.body.YEAR,
                     SEMESTER: req.body.SEMESTER,
                     USER_NAME: req.body.USER_NAME, 
-                    E_MAIL: req.body.E_MAIL
+                    E_MAIL: req.body.E_MAIL,
+                    ELECTIVE_REM: req.body.ELECTIVE_REM
 
                 })
                 user.save()
@@ -321,6 +322,16 @@ router.post('/updateSeats',async (req,res)=> {
         }
     })
     
+})
+router.get('/getSeats', async (req,res) =>{
+    try{
+        seatsData = await Table2.find({},)
+        console.log(seatsData)
+        res.json({seatsList: seatsData})
+    } catch (error){
+        console.log(error)
+        res.json({status: error})
+    }
 })
 
 

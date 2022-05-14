@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'admin_top_bar_contents.dart';
 import 'dashboard_temp.dart';
 
 class addUser extends StatefulWidget {
@@ -27,6 +28,8 @@ class _addUserState extends State<addUser> {
     final TextEditingController SEMESTER = TextEditingController();
     final TextEditingController USER_NAME = TextEditingController();
     final TextEditingController E_MAIL = TextEditingController();
+    var temp;
+    print(seat[0][0]);
     final addUser = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
@@ -221,6 +224,13 @@ class _addUserState extends State<addUser> {
                   SizedBox(height: 50),
                   ElevatedButton(
                       onPressed: () async {
+                        for(var i=0;i<seat.length;i++)
+                          {
+                            if (SEMESTER.text == seat[i][0].toString())
+                              {
+                                temp = seat[i][1].toString();
+                              }
+                          }
                         if (addUser.currentState!.validate()) {
                           Student user = Student(
                               S_ID.text,
@@ -229,7 +239,9 @@ class _addUserState extends State<addUser> {
                               YEAR.text,
                               SEMESTER.text,
                               USER_NAME.text,
-                              E_MAIL.text);
+                              E_MAIL.text,
+                              temp
+                          );
                           String json = jsonEncode(user);
                           print(json);
                           String resp = await addStudent(json);

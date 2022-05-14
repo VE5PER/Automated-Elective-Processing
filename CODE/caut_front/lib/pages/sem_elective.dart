@@ -159,3 +159,31 @@ Future<String> addSemElective(String stu) async {
     throw Exception('Failed to add Batches.');
   }
 }
+Future<List> getSeats() async {
+  final response = await http.get(Uri.parse(src + '/getSeats'));
+
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    var x = jsonDecode(response.body);
+    var seatsList = x['seatsList'];
+    List seats = [];
+
+    for (var i in seatsList) {
+      seats.add([
+        i['SEMESTER'],
+        i['NO_OF_ELECTIVES']
+        // i['ELECTIVE_PDF_LINK'],
+        // i['SEATS']
+      ]);
+
+      //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
+    }
+    seat = seats;
+    return seats;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load elective list');
+  }
+}
