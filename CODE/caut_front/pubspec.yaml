@@ -44,7 +44,8 @@ dependencies:
   carousel_slider: ^4.0.0
   table_sticky_headers: ^2.0.0
   dropdown_button2: ^1.4.0
-  circular_countdown_timer: ^0.2.1
+  intl: ^0.17.0
+  flutter_countdown_timer: ^4.1.0
 
 dev_dependencies:
   flutter_test:

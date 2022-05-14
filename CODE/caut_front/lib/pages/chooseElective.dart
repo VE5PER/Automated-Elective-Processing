@@ -7,13 +7,15 @@ import 'package:automated_elective_processing/pages/dashboard/widget/profile_car
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 import '../globals.dart';
 import '../main.dart';
 
 List eleIds = [];
-List eleSeats =[];
+List eleSeats = [];
 
 class chooseElective extends StatefulWidget {
   const chooseElective({Key? key}) : super(key: key);
@@ -48,8 +50,7 @@ class _chooseElectiveState extends State<chooseElective> {
             //     break;
             //   }
             // }
-            for(var i=0;i<eleIds.length;i++)
-            {
+            for (var i = 0; i < eleIds.length; i++) {
               String electiveJson = '''{
                       "S_ID":"${currentUser["S_ID"]}",
                       "ELECTIVE_ID":"${eleIds[i].toString()}"
@@ -66,8 +67,7 @@ class _chooseElectiveState extends State<chooseElective> {
                 showScreenDialog(context, 'Already Registered');
                 success = 0;
                 break;
-              }
-              else{
+              } else {
                 seatChange(seatsJson);
               }
             }
@@ -95,91 +95,77 @@ class _chooseElectiveState extends State<chooseElective> {
                     builder: (BuildContext context) => dashboard()));
           },
         ),
+        actions: [
+          Text('Time left to Choose: ', style:  TextStyle(
+              color: Colors.blue, fontSize: 28, fontWeight: FontWeight.bold),),
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: CountdownTimer(
+              endTime:
+                  DateTime.parse('2022-05-17 08:00:00').millisecondsSinceEpoch,
+              textStyle: TextStyle(
+                  color: Colors.blue, fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
         title: Text('Choose Electives'),
       ),
       body: eleDisplay.length > 0
           ? Row(
-            children: [
-              Expanded(flex: 8,
-                child: Container(
-                    padding: EdgeInsets.all(20),
-                    child: GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 200,
-                            childAspectRatio: 3 / 2,
-                            crossAxisSpacing: 20,
-                            mainAxisSpacing: 20,
-                        ),
-                        itemCount: eleDisplay.length,
-                        itemBuilder: (BuildContext ctx, index) {
-                          return InkWell(
-                            onTap: () {
-                              setState(() {
-                                if (eleIds.contains(eleDisplay[index][0])) {
-                                  eleIds.remove(eleDisplay[index][0]);
-                                  var temp = int.parse(eleDisplay[index][3]);
-                                  temp =temp-1;
-                                  String temp1=temp.toString();
-                                  eleSeats.remove(temp1);
-                                } else {
-                                  eleIds.add(eleDisplay[index][0]);
-                                  var temp = int.parse(eleDisplay[index][3]);
-                                  temp =temp-1;
-                                  String temp1=temp.toString();
-                                  eleSeats.add(temp1);
-                                }
-                              });
-                            },
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              alignment: Alignment.center,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text('Elective ID: ${eleDisplay[index][0]}'),
-                                  Text('Elective Name: ${eleDisplay[index][1]}'),
-                                  Text('Ref link: ${eleDisplay[index][2]}'),
-                                  Text('No of Seats: ${eleDisplay[index][3]}'),
-                                ],
-                              ),
-                              decoration: BoxDecoration(
-                                  color: eleIds.contains(eleDisplay[index][0])
-                                      ? Colors.red
-                                      : Colors.amber,
-                                  borderRadius: BorderRadius.circular(15)),
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 200,
+                        childAspectRatio: 3 / 2,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                      ),
+                      itemCount: eleDisplay.length,
+                      itemBuilder: (BuildContext ctx, index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              if (eleIds.contains(eleDisplay[index][0])) {
+                                eleIds.remove(eleDisplay[index][0]);
+                                var temp = int.parse(eleDisplay[index][3]);
+                                temp = temp - 1;
+                                String temp1 = temp.toString();
+                                eleSeats.remove(temp1);
+                              } else {
+                                eleIds.add(eleDisplay[index][0]);
+                                var temp = int.parse(eleDisplay[index][3]);
+                                temp = temp - 1;
+                                String temp1 = temp.toString();
+                                eleSeats.add(temp1);
+                              }
+                            });
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            alignment: Alignment.center,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Elective ID: ${eleDisplay[index][0]}'),
+                                Text('Elective Name: ${eleDisplay[index][1]}'),
+                                Text('Ref link: ${eleDisplay[index][2]}'),
+                                Text('No of Seats: ${eleDisplay[index][3]}'),
+                              ],
                             ),
-                          );
-                        }),
-                  ),
-              ),
-              Expanded(flex:1, child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: CircularCountDownTimer(
-                  duration: 500,
-                  initialDuration: 0,
-                  controller: CountDownController(),
-                  width: MediaQuery.of(context).size.width / 2,
-                  height: MediaQuery.of(context).size.height / 2,
-                  ringColor: Colors.grey[300]!,
-                  ringGradient: null,
-                  fillColor: Colors.purpleAccent[100]!,
-                  fillGradient: null,
-                  backgroundColor: Colors.purple[500],
-                  backgroundGradient: null,
-                  strokeWidth: 20.0,
-                  strokeCap: StrokeCap.round,
-                  textStyle: TextStyle(
-                      fontSize: 33.0, color: Colors.white, fontWeight: FontWeight.bold),
-                  textFormat: CountdownTextFormat.S,
-                  isReverse: true,
-                  isReverseAnimation: true,
-                  isTimerTextShown: true,
-                  autoStart: true,
-
+                            decoration: BoxDecoration(
+                                color: eleIds.contains(eleDisplay[index][0])
+                                    ? Colors.red
+                                    : Colors.amber,
+                                borderRadius: BorderRadius.circular(15)),
+                          ),
+                        );
+                      }),
                 ),
-              ),)
-            ],
-          )
+              ],
+            )
           : Container(),
     );
   }
@@ -191,10 +177,10 @@ Future<List> getElectives() async {
   if (response.statusCode == 200 || response.statusCode == 201) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    eleDisplay=[];
+    eleDisplay = [];
     var x = jsonDecode(response.body);
     var electiveList = x['ElectiveList'];
-    electAll=[];
+    electAll = [];
     for (var i in electiveList) {
       electAll.add([
         i['ELECTIVE_ID'],
@@ -205,8 +191,8 @@ Future<List> getElectives() async {
 
       //elect.add(Elective(i['ELECTIVE_ID'], i['ELECTIVE_NAME'], i['ELECTIVE_PDF_LINK'], i['SEATS']));
     }
-    for(int i = 0;i<electAll.length;i++){
-      if((electAll[i].toSet().intersection(eleChosen.toSet()).length) == 0){
+    for (int i = 0; i < electAll.length; i++) {
+      if ((electAll[i].toSet().intersection(eleChosen.toSet()).length) == 0) {
         eleDisplay.add(electAll[i]);
       }
     }
@@ -238,6 +224,7 @@ Future<String> setElective(String stu) async {
     throw Exception('Elective Add error');
   }
 }
+
 Future<String> seatChange(String stu) async {
   final response = await http.post(
     Uri.parse(src + '/updateSeats'),
