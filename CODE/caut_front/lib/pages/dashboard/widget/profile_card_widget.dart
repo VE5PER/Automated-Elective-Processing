@@ -95,6 +95,7 @@ Future<List> takeElectives() async {
 
 
     for (var i in electiveList) {
+      if(!eleChosen.contains(i['ELECTIVE_ID']))
       eleChosen.add(i['ELECTIVE_ID']);
     }
 

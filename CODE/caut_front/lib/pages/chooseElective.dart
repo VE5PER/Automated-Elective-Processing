@@ -95,6 +95,7 @@ class _chooseElectiveState extends State<chooseElective> {
                     builder: (BuildContext context) => dashboard()));
           },
         ),
+        /*
         actions: [
           Text('Time left to Choose: ', style:  TextStyle(
               color: Colors.blue, fontSize: 28, fontWeight: FontWeight.bold),),
@@ -108,64 +109,68 @@ class _chooseElectiveState extends State<chooseElective> {
             ),
           ),
         ],
+
+         */
         title: Text('Choose Electives'),
       ),
       body: eleDisplay.length > 0
-          ? Row(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 200,
-                        childAspectRatio: 3 / 2,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                      ),
-                      itemCount: eleDisplay.length,
-                      itemBuilder: (BuildContext ctx, index) {
-                        return InkWell(
-                          onTap: () {
-                            setState(() {
-                              if (eleIds.contains(eleDisplay[index][0])) {
-                                eleIds.remove(eleDisplay[index][0]);
-                                var temp = int.parse(eleDisplay[index][3]);
-                                temp = temp - 1;
-                                String temp1 = temp.toString();
-                                eleSeats.remove(temp1);
-                              } else {
-                                eleIds.add(eleDisplay[index][0]);
-                                var temp = int.parse(eleDisplay[index][3]);
-                                temp = temp - 1;
-                                String temp1 = temp.toString();
-                                eleSeats.add(temp1);
-                              }
-                            });
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(5),
-                            alignment: Alignment.center,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text('Elective ID: ${eleDisplay[index][0]}'),
-                                Text('Elective Name: ${eleDisplay[index][1]}'),
-                                Text('Ref link: ${eleDisplay[index][2]}'),
-                                Text('No of Seats: ${eleDisplay[index][3]}'),
-                              ],
-                            ),
-                            decoration: BoxDecoration(
-                                color: eleIds.contains(eleDisplay[index][0])
-                                    ? Colors.red
-                                    : Colors.amber,
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
-                        );
-                      }),
+          ? Container(
+            padding: EdgeInsets.all(20),
+            child: GridView.builder(
+                gridDelegate:
+                    const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 3 / 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
                 ),
-              ],
-            )
+                itemCount: eleDisplay.length,
+                itemBuilder: (BuildContext ctx, index) {
+                  return InkWell(
+                       onTap: () {
+                         if(currentUser['ELECTIVE_REM']- eleChosen.length) {
+                           print(currentUser['ELECTIVE_REM']);
+                           setState(() {
+                             if (eleIds.contains(eleDisplay[index][0])) {
+                               eleIds.remove(eleDisplay[index][0]);
+                               var temp = int.parse(eleDisplay[index][3]);
+                               temp = temp - 1;
+                               String temp1 = temp.toString();
+                               eleSeats.remove(temp1);
+                             } else {
+                               eleIds.add(eleDisplay[index][0]);
+                               var temp = int.parse(eleDisplay[index][3]);
+                               temp = temp - 1;
+                               String temp1 = temp.toString();
+                               eleSeats.add(temp1);
+                             }
+                           });
+                         }
+                         else {
+                           showScreenDialog(context, 'Elective Limit Reached');
+                         }
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text('Elective ID: ${eleDisplay[index][0]}'),
+                          Text('Elective Name: ${eleDisplay[index][1]}'),
+                          Text('Ref link: ${eleDisplay[index][2]}'),
+                          Text('No of Seats: ${eleDisplay[index][3]}'),
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          color: eleIds.contains(eleDisplay[index][0])
+                              ? Colors.red
+                              : Colors.amber,
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
+                  );
+                }),
+          )
           : Container(),
     );
   }

@@ -86,8 +86,8 @@ class _SideBarState extends State<SideBar> {
             ),
             Spacer(),
             ElevatedButton(onPressed: (){
-             // print(electAll);
-
+              print(electAll);
+              print(eleChosen);
               print(eleDisplay );
 /*
               for(int i = 0;i<electAll.length;i++){
