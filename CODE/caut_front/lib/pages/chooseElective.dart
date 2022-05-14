@@ -95,7 +95,7 @@ class _chooseElectiveState extends State<chooseElective> {
                     builder: (BuildContext context) => dashboard()));
           },
         ),
-        /*
+
         actions: [
           Text('Time left to Choose: ', style:  TextStyle(
               color: Colors.blue, fontSize: 28, fontWeight: FontWeight.bold),),
@@ -110,7 +110,7 @@ class _chooseElectiveState extends State<chooseElective> {
           ),
         ],
 
-         */
+         
         title: Text('Choose Electives'),
       ),
       body: eleDisplay.length > 0
