@@ -4,7 +4,7 @@ import 'package:automated_elective_processing/dashboard.dart';
 import 'package:automated_elective_processing/functions/notify.dart';
 import 'package:automated_elective_processing/models/student.dart';
 import 'package:automated_elective_processing/pages/dashboard/widget/profile_card_widget.dart';
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
