@@ -53,7 +53,7 @@ class ProfileCardWidget extends StatelessWidget {
 
           for (var i in eleChosen) profileListTile(i.toString(), 'REG'),
 
-          // profileListTile("Elective 2", "B"),
+
         ],
       ),
     );

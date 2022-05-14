@@ -89,13 +89,7 @@ class _SideBarState extends State<SideBar> {
               print(electAll);
               print(eleChosen);
               print(eleDisplay );
-/*
-              for(int i = 0;i<electAll.length;i++){
-                if(electAll[i].toSet().intersection(eleChosen.toSet()).length == 0)
-                print(electAll[i]);
-                }
 
- */
 
 
 

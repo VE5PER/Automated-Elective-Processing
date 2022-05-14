@@ -110,7 +110,7 @@ class _chooseElectiveState extends State<chooseElective> {
           ),
         ],
 
-         
+
         title: Text('Choose Electives'),
       ),
       body: eleDisplay.length > 0
