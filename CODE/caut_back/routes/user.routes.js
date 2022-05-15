@@ -334,6 +334,24 @@ router.get('/getSeats', async (req,res) =>{
     }
 })
 
+router.post('/changeElective', async(req,res) => {
 
+    
+
+
+    const result = await StuEle.updateOne(
+        {S_ID:req.body.S_ID, ELECTIVE_ID:req.body.OLD_ID},
+        {$set : {ELECTIVE_ID : req.body.NEW_ID} },
+        {upsert: false}
+    ).then((obj) => {
+        console.log('Updated');
+        res.json({  message:'Changed Successfully'})
+       
+  })
+ .catch((err) => {
+    console.log('Error: ' + err);
+})
+
+})
 
 module.exports = router
