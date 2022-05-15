@@ -128,7 +128,8 @@ class _chooseElectiveState extends State<chooseElective> {
                 itemBuilder: (BuildContext ctx, index) {
                   return InkWell(
                        onTap: () {
-                         if(currentUser['ELECTIVE_REM']- eleChosen.length) {
+                         print(int.parse(currentUser['ELECTIVE_REM'].toString()) - eleChosen.length);
+                         if(int.parse(currentUser['ELECTIVE_REM'].toString()) - eleChosen.length != 0) {
                            print(currentUser['ELECTIVE_REM']);
                            setState(() {
                              if (eleIds.contains(eleDisplay[index][0])) {
