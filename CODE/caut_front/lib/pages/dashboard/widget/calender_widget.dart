@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:intl/intl.dart';

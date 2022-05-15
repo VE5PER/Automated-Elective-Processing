@@ -7,7 +7,6 @@ import 'package:automated_elective_processing/pages/admin_menu_drawer.dart';
 import 'package:automated_elective_processing/models/sem_elective.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/material.dart';
 
 import '../functions/notify.dart';
 import '../main.dart';

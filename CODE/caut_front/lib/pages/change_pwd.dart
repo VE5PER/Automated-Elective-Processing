@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import '../../../main.dart';
 import '../globals.dart';
 
+final oldPassword = Key('oldPassword');
+final newPassword = Key('newPassword');
+
 class change_pwd extends StatelessWidget {
   const change_pwd();
 
@@ -60,6 +63,8 @@ class changeform extends StatefulWidget {
 class _changeformState extends State<changeform> {
   final _oldpwd = TextEditingController();
   final _newpwd = TextEditingController();
+
+
   double _formProgress = 0;
   final pwdform = GlobalKey<FormState>();
 
@@ -80,6 +85,7 @@ class _changeformState extends State<changeform> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                key: oldPassword,
                 controller: _oldpwd,
                 decoration: const InputDecoration(hintText: 'old password'),
                 obscureText: true,
@@ -96,6 +102,7 @@ class _changeformState extends State<changeform> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                key: newPassword,
                 controller: _newpwd,
                 obscureText: true,
                 decoration: const InputDecoration(hintText: 'New Password'),
