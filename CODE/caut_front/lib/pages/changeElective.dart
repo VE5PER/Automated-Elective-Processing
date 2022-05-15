@@ -5,6 +5,10 @@ import '../dashboard.dart';
 import '../functions/notify.dart';
 import '../globals.dart';
 
+
+List oldEle=[];
+List newEle=[];
+
 class changeElective extends StatefulWidget {
   const changeElective({Key? key}) : super(key: key);
 
@@ -16,6 +20,7 @@ class _changeElectiveState extends State<changeElective> {
   @override
   Widget build(BuildContext context) {
     List already=[];
+
     for(int i = 0;i<electAll.length;i++){
       if(eleChosen.contains(electAll[i][0])){
         already.add(electAll[i]);
@@ -65,30 +70,16 @@ class _changeElectiveState extends State<changeElective> {
                           itemBuilder: (BuildContext ctx, index) {
                             return InkWell(
                               onTap: () {
-                                if (currentUser['ELECTIVE_REM'] -
-                                    eleChosen.length) {
-                                  print(currentUser['ELECTIVE_REM']);
-                                  setState(() {
-                                    /*
-                        if (eleIds.contains(electAll[index][0])) {
-                          eleIds.remove(electAll[index][0]);
-                          var temp = int.parse(electAll[index][3]);
-                          temp = temp - 1;
-                          String temp1 = temp.toString();
-                          eleSeats.remove(temp1);
-                        } else {
-                          eleIds.add(electAll[index][0]);
-                          var temp = int.parse(electAll[index][3]);
-                          temp = temp - 1;
-                          String temp1 = temp.toString();
-                          eleSeats.add(temp1);
-                        } */
-                                  });
-                                } else {
-                                  showScreenDialog(
-                                      context, 'Elective Limit Reached');
-                                }
-                              },
+                                setState(() {
+
+
+                                  oldEle.contains(already[index][0]) ? oldEle.remove(already[index][0]) : oldEle.add(already[index][0]);
+                                  print(oldEle);
+
+
+                                });
+
+                                  },
                               child: Container(
                                 alignment: Alignment.center,
                                 child: Column(
@@ -104,7 +95,7 @@ class _changeElectiveState extends State<changeElective> {
                                 ),
                                 decoration: BoxDecoration(
                                     color:
-                                        true //eleIds.contains(electAll[index][0])
+                                        oldEle.contains(already[index][0])
                                             ? Colors.red
                                             : Colors.amber,
                                     borderRadius: BorderRadius.circular(15)),
@@ -129,7 +120,7 @@ class _changeElectiveState extends State<changeElective> {
                       padding: const EdgeInsets.all(14.0),
                       child: Text(
                         'Electives Available',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(color: Colors.white, fontSize: 20,),
                       ),
                     ),
                     Container(
@@ -147,29 +138,10 @@ class _changeElectiveState extends State<changeElective> {
                           itemBuilder: (BuildContext ctx, index) {
                             return InkWell(
                               onTap: () {
-                                if (currentUser['ELECTIVE_REM'] -
-                                    eleChosen.length) {
-                                  print(currentUser['ELECTIVE_REM']);
-                                  setState(() {
-                                    /*
-                        if (eleIds.contains(electAll[index][0])) {
-                          eleIds.remove(electAll[index][0]);
-                          var temp = int.parse(electAll[index][3]);
-                          temp = temp - 1;
-                          String temp1 = temp.toString();
-                          eleSeats.remove(temp1);
-                        } else {
-                          eleIds.add(electAll[index][0]);
-                          var temp = int.parse(electAll[index][3]);
-                          temp = temp - 1;
-                          String temp1 = temp.toString();
-                          eleSeats.add(temp1);
-                        } */
-                                  });
-                                } else {
-                                  showScreenDialog(
-                                      context, 'Elective Limit Reached');
-                                }
+                                setState(() {
+                                  newEle.contains(eleDisplay[index][0]) ? newEle.remove(eleDisplay[index][0]) : newEle.add(eleDisplay[index][0]);
+                                  print(newEle);
+                                });
                               },
                               child: Container(
                                 alignment: Alignment.center,
@@ -186,7 +158,7 @@ class _changeElectiveState extends State<changeElective> {
                                 ),
                                 decoration: BoxDecoration(
                                     color:
-                                        true //eleIds.contains(electAll[index][0])
+                                        newEle.contains(eleDisplay[index][0])
                                             ? Colors.red
                                             : Colors.amber,
                                     borderRadius: BorderRadius.circular(15)),
