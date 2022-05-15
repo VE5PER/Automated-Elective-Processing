@@ -1,13 +1,15 @@
+import 'package:automated_elective_processing/pages/admin_batch_alloc_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import '../dashboard.dart';
 import '../functions/notify.dart';
 import '../globals.dart';
+import '../main.dart';
+import 'dashboard/widget/profile_card_widget.dart';
 
 
-List oldEle=[];
-List newEle=[];
+
 
 class changeElective extends StatefulWidget {
   const changeElective({Key? key}) : super(key: key);
@@ -38,6 +40,45 @@ class _changeElectiveState extends State<changeElective> {
                       builder: (BuildContext context) => dashboard()));
             },
           ),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          
+          onPressed: () async {
+
+          if(oldEle.length==newEle.length){
+            print(oldEle);
+            print(newEle);
+
+            for(int i=0;i<oldEle.length;i++){
+              String changeJson = '''{
+                    "S_ID":"${currentUser["S_ID"]}",
+                    "OLD_ID":"${oldEle[i].toString()}",
+                    "NEW_ID":"${newEle[i].toString()}"
+              }''';
+
+            String status = await changeEle(changeJson);
+            }
+            showScreenDialog(context, 'Successfully Swapped');
+
+            newEle.clear();
+            oldEle.clear();
+            await takeElectives();
+            await getElective();
+
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => dashboard()));
+          }
+          else{
+            showScreenDialog(context, 'Select Equal number of electives');
+            setState(() {
+              newEle.clear();
+              oldEle.clear();
+            });
+          }
+        }, label: Text('Swap Electives'),
+        
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 15),
@@ -172,5 +213,25 @@ class _changeElectiveState extends State<changeElective> {
             ],
           ),
         ));
+  }
+}
+
+
+
+Future<String> changeEle(String data) async {
+  final response = await http.post(
+    Uri.parse(src+'/changeElective'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+      },
+      body:data,);
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return response.body.toString();
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Change error');
   }
 }

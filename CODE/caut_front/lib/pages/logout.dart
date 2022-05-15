@@ -2,6 +2,7 @@ import 'package:automated_elective_processing/common/app_colors.dart';
 import 'package:automated_elective_processing/json_test.dart';
 import 'package:flutter/material.dart';
 
+import '../globals.dart';
 import '../main.dart';
 
 class logout extends StatelessWidget {
@@ -31,6 +32,7 @@ class logout extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
+            reset();
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => login()));
           },
