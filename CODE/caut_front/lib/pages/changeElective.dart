@@ -58,12 +58,16 @@ class _changeElectiveState extends State<changeElective> {
 
             String status = await changeEle(changeJson);
             }
+            reset();
             showScreenDialog(context, 'Successfully Swapped');
 
-            newEle.clear();
-            oldEle.clear();
+
             await takeElectives();
             await getElective();
+            Future.delayed(Duration(milliseconds: 200), () {
+              // Do something
+            });
+
 
             Navigator.pushReplacement(
                 context,
