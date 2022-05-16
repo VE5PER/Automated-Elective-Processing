@@ -225,8 +225,8 @@ class _AdminTopBarContentsState extends State<AdminTopBarContents> {
                     value ? _isHovering[2] = true : _isHovering[2] = false;
                   });
                 },
-                  onTap: () async{
-                    await getElective();
+                  onTap: () {
+                    getElective();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
                         batchAlloc()));
                     setState(() {});

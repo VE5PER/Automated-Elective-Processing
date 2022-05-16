@@ -108,7 +108,7 @@ router.post('/addElective',(req,res)=>{
 router.get('/getElectives', async (req,res) =>{
     try{
         electiveData = await Elective.find({},)
-        console.log(electiveData)
+        // console.log(electiveData)
         res.json({ElectiveList: electiveData})
     } catch (error){
         console.log(error)
@@ -264,7 +264,7 @@ router.get('/getBatches', async (req,res) =>{
         // })
         // console.log(newBatch[0])
         res.json({BatchList: batchesData})
-        console.log('hello')
+        // console.log('hello')
     } catch (error){
         console.log(error)
         res.json({status: error})
@@ -279,7 +279,8 @@ router.post('/updateSeats',async (req,res)=> {
  
         
  
-     ).then((obj) => {
+     )
+     .then((obj) => {
          console.log('Updated');
          res.json({  message:'Changed Successfully'})
         
@@ -305,7 +306,7 @@ router.post('/updateSeats',async (req,res)=> {
                 t2.save()
                 .then((err)=>{
                     if(err){
-                        console.log(err)
+                        // console.log(err)
                         res.json(err)
                     }else{
                         console.log(taken)
@@ -326,7 +327,6 @@ router.post('/updateSeats',async (req,res)=> {
 router.get('/getSeats', async (req,res) =>{
     try{
         seatsData = await Table2.find({},)
-        console.log(seatsData)
         res.json({seatsList: seatsData})
     } catch (error){
         console.log(error)
@@ -344,7 +344,7 @@ router.post('/changeElective', async(req,res) => {
         {$set : {ELECTIVE_ID : req.body.NEW_ID} },
         {upsert: false}
     ).then((obj) => {
-        console.log('Updated');
+        // console.log('Updated');
         res.json({  message:'Changed Successfully'})
        
   })

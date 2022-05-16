@@ -35,8 +35,8 @@ class _batchAllocState extends State<batchAlloc> {
   @override
   Widget build(BuildContext context) {
     String txt = '';
-    elem.insert(0,dropDownValue3);
-    print(elem[0]);
+    elem.insert(0,'Select Elective');
+    print(elem);
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         // appBar: AppBar(title: Text("Admin Dashboard", textAlign: TextAlign.center, style: TextStyle(color: AppColor.yellow, fontWeight: FontWeight.bold, fontSize: 30),),backgroundColor: AppColor.purple,),
@@ -89,11 +89,11 @@ class _batchAllocState extends State<batchAlloc> {
                               child: Text(value),
                             );
                           }).toList(),
-    onChanged: (String? newValue) {
-      setState(() {
-        dropDownValue2 = newValue!;
-      });
-    },
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropDownValue2 = newValue!;
+                            });
+                          },
                         )
                       ],
                     ),
