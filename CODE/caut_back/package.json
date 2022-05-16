@@ -4,7 +4,8 @@
   "description": "test app",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +18,10 @@
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.8",
     "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
   }
 }

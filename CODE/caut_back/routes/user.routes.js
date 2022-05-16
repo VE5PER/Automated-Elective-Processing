@@ -264,7 +264,7 @@ router.get('/getBatches', async (req,res) =>{
         // })
         // console.log(newBatch[0])
         res.json({BatchList: batchesData})
-        console.log('hello')
+        // console.log('hello')
     } catch (error){
         console.log(error)
         res.json({status: error})
@@ -280,7 +280,7 @@ router.post('/updateSeats',async (req,res)=> {
         
  
      ).then((obj) => {
-         console.log('Updated');
+        //  console.log('Updated');
          res.json({  message:'Changed Successfully'})
         
    })
@@ -344,7 +344,7 @@ router.post('/changeElective', async(req,res) => {
         {$set : {ELECTIVE_ID : req.body.NEW_ID} },
         {upsert: false}
     ).then((obj) => {
-        console.log('Updated');
+        // console.log('Updated');
         res.json({  message:'Changed Successfully'})
        
   })
