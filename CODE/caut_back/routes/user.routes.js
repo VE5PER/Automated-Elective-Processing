@@ -326,7 +326,6 @@ router.post('/updateSeats',async (req,res)=> {
 router.get('/getSeats', async (req,res) =>{
     try{
         seatsData = await Table2.find({},)
-        console.log(seatsData)
         res.json({seatsList: seatsData})
     } catch (error){
         console.log(error)
