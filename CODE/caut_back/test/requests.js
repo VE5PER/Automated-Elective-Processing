@@ -61,7 +61,7 @@ describe('Electives', () => {
 describe('Seats', () => {
 
     describe("GET /getSeats", () => {
-        it("It should get the number of seats for each semester.", (done) => {
+        it("It should get the number of Electives for each semester.", (done) => {
             chai.request('http://localhost:8432')
                 .get('/getSeats')
                 .end((err, res) => {
@@ -70,7 +70,7 @@ describe('Seats', () => {
                 done();
                 });
         });  
-        it("It should not get the number of seats.", (done) => {
+        it("It should not get the number of Electives.", (done) => {
             chai.request('http://localhost:8432')
                 .get('/getSeat')
                 .end((err, res) => {
@@ -79,27 +79,25 @@ describe('Seats', () => {
                 });
         });
     });
-
-});
-describe('Seats', () => {
-
-    describe("GET /getSeats", () => {
-        it("It should get the number of seats for each semester.", (done) => {
+    describe("POST /addSemElective", () => {
+        it("It should add Number of Electives for a Semester", (done) =>{
+            const SemEl ={
+                YEAR: "5",
+                SEMESTER: "9",
+                NO_OF_ELECTIVES: "2"
+            };
             chai.request('http://localhost:8432')
-                .get('/getSeats')
-                .end((err, res) => {
+                .post('/addSemElective')
+                .send(SemEl)
+                .end((err,res) => {
                     res.should.have.status(200);
-                    res.body.should.be.a('object')
-                done();
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('YEAR').eq("5");
+                    res.body.should.have.property('SEMESTER').eq("9");
+                    res.body.should.have.property('NO_OF_ELECTIVES').eq("2");
+                    done();
                 });
-        });  
-        it("It should not get the number of seats.", (done) => {
-            chai.request('http://localhost:8432')
-                .get('/getSeat')
-                .end((err, res) => {
-                    res.should.have.status(404);
-                done();
-                });
+
         });
     });
 

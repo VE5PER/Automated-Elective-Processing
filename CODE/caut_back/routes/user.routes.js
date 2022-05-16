@@ -108,7 +108,7 @@ router.post('/addElective',(req,res)=>{
 router.get('/getElectives', async (req,res) =>{
     try{
         electiveData = await Elective.find({},)
-        console.log(electiveData)
+        // console.log(electiveData)
         res.json({ElectiveList: electiveData})
     } catch (error){
         console.log(error)
@@ -279,8 +279,9 @@ router.post('/updateSeats',async (req,res)=> {
  
         
  
-     ).then((obj) => {
-        //  console.log('Updated');
+     )
+     .then((obj) => {
+         console.log('Updated');
          res.json({  message:'Changed Successfully'})
         
    })
@@ -305,7 +306,7 @@ router.post('/updateSeats',async (req,res)=> {
                 t2.save()
                 .then((err)=>{
                     if(err){
-                        console.log(err)
+                        // console.log(err)
                         res.json(err)
                     }else{
                         console.log(taken)
