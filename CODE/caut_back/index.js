@@ -5,9 +5,10 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost:27017/db1",{ useNewUrlParser: true, useUnifiedTopology: true })
+//mongoose.connect("mongodb://localhost:27017/db1",{ useNewUrlParser: true, useUnifiedTopology: true })  //docker mongo local
 
-//172.17.0.1 for docker
+mongoose.connect("mongodb://mongo:27017/db1",{ useNewUrlParser: true, useUnifiedTopology: true })  //compose for docker multi image
+
 
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}))

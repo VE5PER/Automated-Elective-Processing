@@ -4,8 +4,9 @@
   "description": "test app",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha"
+    "start": "node index.js",
+    "test": "mocha",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
